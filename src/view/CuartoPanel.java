@@ -5,14 +5,11 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.awt.Graphics;
 import java.awt.Font;
-import java.awt.Color;
+
+
 
 import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.border.EmptyBorder;
-import javax.swing.text.AttributeSet.ColorAttribute;
+
 
 import controll.Controller;
 
