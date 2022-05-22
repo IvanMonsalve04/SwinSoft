@@ -15,15 +15,21 @@ public class IOManager extends JFrame implements CustomEventRespons {
 	
 	//Declaración de Variables
 	private PrimerPanel panelUno;
+	private JPanel panelImprimir;
 	private SegundoPanel panelDos;
 	private TercerPanel panelTres;
 	private CuartoPanel panelCuatro;
 	private JTabbedPane pestanas;
 
+	
+	
 	private Controller objetoControlador;
 	
 	//Método Constructor
 	public IOManager() {
+
+		
+
 		objetoControlador = new Controller();
        //con esto comunicamos los objetos en el modelo
 		objetoControlador.setEventoRespuesta(this);
@@ -50,30 +56,49 @@ public class IOManager extends JFrame implements CustomEventRespons {
 		
 		panelTres= new TercerPanel();
 		//((TercerPanel)panelTres).setEvento(objetoControlador);
-		pestanas.add("TIENDA//QUIOSCO", ((TercerPanel)panelTres));
+		pestanas.add("TIENDA", ((TercerPanel)panelTres));
 		add(pestanas);
 
+		
 		panelCuatro = new CuartoPanel();
-		//((CuartoPanel)panelCuatro).setEvento(objetoControlador);
-		pestanas.add("CIERRE CAJA", ((CuartoPanel)panelCuatro));
+		((CuartoPanel)panelCuatro).setEvento(objetoControlador);
+		
+		pestanas.add("QUIOSCO", ((CuartoPanel)panelCuatro));
+		pestanas.setEnabledAt(pestanas.indexOfComponent(panelCuatro),false);
 		add(pestanas);
+
+		//panel prueba imprimir
+		panelImprimir = new Imprimir();
+		((Imprimir)panelImprimir).setEvento(objetoControlador);
+		pestanas.add("RECIBO",((Imprimir)panelImprimir));
+		pestanas.setEnabledAt(pestanas.indexOfComponent(panelImprimir),false);
+		add(pestanas);
+	
 	}
 
+
 	//Métodos propios
+
+
 
 	@Override
 	public void respuestaResultadoLogIn(boolean resultadoLogIn) {
 		((PrimerPanel)panelUno).mostrarResultadoLogIn(resultadoLogIn);
 		if(resultadoLogIn == true) {
 			pestanas.setEnabledAt(pestanas.indexOfComponent(panelDos),true);
+			pestanas.setEnabledAt(pestanas.indexOfComponent(panelCuatro),true);
+
 		} else{
 			pestanas.setEnabledAt(pestanas.indexOfComponent(panelDos),false);
+			pestanas.setEnabledAt(pestanas.indexOfComponent(panelCuatro),false);
 		}
 	}
 
+	
+
 	@Override
-	public void respuestaRegistroPersonas(String resultadoImpresion) {
-		((SegundoPanel)panelDos).mostrarResultadoRegistro(resultadoImpresion);
+	public void respuesta(String resultadoImpresion) {
+		//((SegundoPanel)panelDos).mostrarResultado(resultadoImpresion);
 		
 	}
 

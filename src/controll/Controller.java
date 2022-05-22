@@ -26,13 +26,7 @@ public class Controller implements CustomEvent{
 		eventoRespuesta.respuestaResultadoLogIn(resultadoLogIn);
 	}
 
-	@Override
-	public void retornarImpresionPersonas(String nombre, String apellido, String sexo, String identificacion, int cantidadNinos, int cantidadAdultos) {
-		String resultadoImpresion = objetoOperaciones.realizarValidacionRegistro(nombre, apellido, sexo, identificacion, cantidadNinos, cantidadAdultos);
-		//System.out.println(resultadoImpresion);
-		eventoRespuesta.respuestaRegistroPersonas(resultadoImpresion);
-		JOptionPane.showMessageDialog(null, resultadoImpresion);
-	}
+	
 
 	//Gets and Sets
 	public CustomEventRespons getEventoRespuesta() {
@@ -43,10 +37,14 @@ public class Controller implements CustomEvent{
 		this.eventoRespuesta = eventoRespuesta;
 	}
 
+	
+
 	//Método main
 	public void init() {
 		IOManager objetoIOManager = new IOManager();
 		objetoIOManager.setVisible(true);
 	}
+
+	
 
 }

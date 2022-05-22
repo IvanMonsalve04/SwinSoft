@@ -5,7 +5,9 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.awt.Graphics;
 import java.awt.Font;
+import java.awt.BorderLayout;
 import java.awt.Color;
+
 
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
@@ -13,11 +15,15 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.AttributeSet.ColorAttribute;
+
+import controll.Controller;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
+import javax.swing.JFrame;
 
 
 import java.awt.Image;
@@ -51,6 +57,13 @@ public class SegundoPanel extends JPanel implements ActionListener {
 	private JTextField contenidoIdentificacion;
 	private JTextField contenidoManillasNinos;
 	private JTextField contenidoManillasAdultos;
+
+	private JTabbedPane pestanas;
+
+	private Imprimir panelImprimir;
+
+	
+	
 	
 	//variables para Boton
 	private JButton botonUno;
@@ -59,24 +72,26 @@ public class SegundoPanel extends JPanel implements ActionListener {
 	private CustomEvent evento;
 
 	//String o Int
-	private String resultadoVista;
 	
+	private String resultadoVista;
+
+	
+
 	//Método Constructor
 	public SegundoPanel() {
-		resultadoVista = " ";
-		setLayout(null);
+        setLayout(null);
 
 		fuente = new Font("Berlin Sans FB", Font.BOLD, 20);
-		fuenteDos = new Font("Berlin Sans FB", Font.BOLD, 13);
+		fuenteDos = new Font("Berlin Sans FB", Font.BOLD, 16);
 
-		etiquetaTitulo = new JLabel("BIENVENIDO");
-		etiquetaTitulo.setBounds(300, 10, 200, 50);
+		etiquetaTitulo = new JLabel("BIENVENIDO SEÑOR USUARIO");
+		etiquetaTitulo.setBounds(300, 10, 300, 50);
 		etiquetaTitulo.setFont(fuente);
-		etiquetaTitulo.setForeground(java.awt.Color.decode("#0B2B7C"));
+		etiquetaTitulo.setForeground(java.awt.Color.decode("#97970D"));
 		add(etiquetaTitulo);
 
 		etiquetaUno = new JLabel("DIGITA TU NOMBRE");
-		etiquetaUno.setBounds(50, 60, 200, 50);
+		etiquetaUno.setBounds(100, 60, 200, 50);
 		etiquetaUno.setFont(fuenteDos);
 		add(etiquetaUno);
 
@@ -86,7 +101,8 @@ public class SegundoPanel extends JPanel implements ActionListener {
 		add(contenidoNombre);
 
 		etiquetaDos = new JLabel("DIGITA TU APELLIDO");
-		etiquetaDos.setBounds(50, 30, 200, 200);
+		etiquetaDos.setBounds(100, 30, 200, 200);
+		etiquetaDos.setForeground(java.awt.Color.decode("#97970D"));
 		etiquetaDos.setFont(fuenteDos);
 		add(etiquetaDos);
 
@@ -95,7 +111,7 @@ public class SegundoPanel extends JPanel implements ActionListener {
 		add(contenidoApellido);
 		
 		etiquetaSexo = new JLabel("DIGITA TU SEXO");
-		etiquetaSexo.setBounds(50, 70, 200, 200);
+		etiquetaSexo.setBounds(100, 70, 200, 200);
 		etiquetaSexo.setFont(fuenteDos);
 		add(etiquetaSexo);
 
@@ -104,7 +120,8 @@ public class SegundoPanel extends JPanel implements ActionListener {
 		add(contenidoSexo);
 
 		etiquetaIdenti = new JLabel("DIGITA TU IDENTIFICACION");
-		etiquetaIdenti.setBounds(50, 110, 200, 200);
+		etiquetaIdenti.setBounds(100, 110, 200, 200);
+		etiquetaIdenti.setForeground(java.awt.Color.decode("#97970D"));
 		etiquetaIdenti.setFont(fuenteDos);
 		add(etiquetaIdenti);
 
@@ -113,7 +130,7 @@ public class SegundoPanel extends JPanel implements ActionListener {
 		add(contenidoIdentificacion);
 
 		etiquetaNiños = new JLabel("CANTIDAD MANILLAS NIÑOS");
-		etiquetaNiños.setBounds(50, 150, 280, 200);
+		etiquetaNiños.setBounds(100, 150, 280, 200);
 		etiquetaNiños.setFont(fuenteDos);
 		add(etiquetaNiños);
 
@@ -122,26 +139,41 @@ public class SegundoPanel extends JPanel implements ActionListener {
 		add(contenidoManillasNinos);
 
 		etiquetaMayores = new JLabel("CANTIDAD MANILLAS MAYORES");
-		etiquetaMayores.setBounds(50, 190, 400, 200);
+		etiquetaMayores.setForeground(java.awt.Color.decode("#97970D"));
+		etiquetaMayores.setBounds(100, 190, 400, 200);
 		etiquetaMayores.setFont(fuenteDos);
 		add(etiquetaMayores);
 
 		contenidoManillasAdultos = new JTextField();
 		contenidoManillasAdultos.setBounds(350, 280, 180, 20);
 		add(contenidoManillasAdultos);
+		
+		resultado = new JLabel("Su resultado Es: ");
+		resultado.setBounds(8, 90, 200, 50);
+		//add(resultado);
 
 		botonUno = new JButton("IMPRIMIR");
-		botonUno.setBackground(Color.cyan);
+		botonUno.setForeground(java.awt.Color.decode("#97970D"));
 		botonUno.setBounds(300,350,100,40);
 		botonUno.setActionCommand("Primer Boton");
 		botonUno.addActionListener(this);
 		add(botonUno);
+		
+		
+
+	
+
+		
+
 	}
 
 	//Métodos Propios
-	public void mostrarResultadoRegistro(String resultadoImpresion) {
-		String resultadoVista = resultadoImpresion.toString();
-	}
+	
+
+
+	
+
+
 
 	//Gráficos de imagen
 	public void paintComponent(Graphics g) {
@@ -151,14 +183,16 @@ public class SegundoPanel extends JPanel implements ActionListener {
 		g.setColor(Color.yellow);
 		g.drawRect(30, 30, 100, 30);//rectangulo g 
 		try {
-			//ImagenDos = ImageIO.read(new File("C:\\Users\\Acer\\Desktop\\uni\\programacion\\Proyecto final\\panelDos.jpg"));
-			ImagenDos = ImageIO.read(new File("C:\\Users\\ivan\\Downloads\\PanelDos.jpeg"));
+			ImagenDos = ImageIO.read(new File("C:\\Users\\Acer\\Desktop\\uni\\programacion\\Proyecto final\\SegundoPanel.jpg"));
+			//ImagenDos = ImageIO.read(new File("C:\\Users\\ivan\\Downloads\\PanelDos.jpeg"));
 			super.paintComponent(g);//herencia para poner color en g
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "IMAGEN NO ENCONTRADA ");
 		}
 		g.drawImage(ImagenDos, 0, 0, null);//movemos imagen
 	}
+
+	
 
 	//Gets and Sets 
 	public CustomEvent getEvento() {
@@ -171,28 +205,25 @@ public class SegundoPanel extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		//JOptionPane.showMessageDialog(null, "Click");
-		PrimerPanel segundaPestaña = new PrimerPanel();
-        Pestana.add("Pestaña2", segundaPestaña);
-        Pestana.setSelectedComponent(segundaPestaña);
-		Pestana.setseleccion(segundaPestaña);
+		JOptionPane.showMessageDialog(null, "Click");
+
+		
+
+
+
+		
+       
 	
-		String nombre = (contenidoNombre.getText());
-		String apellido =(contenidoApellido.getText());
-		String sexo = (contenidoNombre.getText());
-		String identificacion = (contenidoApellido.getText());
-		int cantidadNinos = Integer.parseInt(contenidoManillasNinos.getText());
-		int cantidadAdultos = Integer.parseInt(contenidoManillasAdultos.getText());
+		
 
-		evento.retornarImpresionPersonas(nombre, apellido, sexo, identificacion, cantidadNinos, cantidadAdultos);
+		
 
-		contenidoNombre.setText(" ");
-		contenidoApellido.setText(" ");
-		contenidoSexo.setText(" ");
-		contenidoIdentificacion.setText(" ");
-		contenidoManillasNinos.setText(" ");
-		contenidoManillasAdultos.setText(" ");
+
+		
+
+		
 	}
+	
 	
 }
 
