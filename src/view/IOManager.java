@@ -94,8 +94,6 @@ public class IOManager extends JFrame implements CustomEventRespons {
 		}
 	}
 
-	
-
 	@Override
 	public void respuesta(String resultadoImpresion) {
 		//((SegundoPanel)panelDos).mostrarResultado(resultadoImpresion);
