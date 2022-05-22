@@ -79,7 +79,7 @@ public class IOManager extends JFrame implements CustomEventRespons {
 
 	//Métodos propios
 
-
+/////////
 
 	@Override
 	public void respuestaResultadoLogIn(boolean resultadoLogIn) {
