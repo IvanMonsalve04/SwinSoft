@@ -64,7 +64,7 @@ public class IOManager extends JFrame implements CustomEventRespons {
 		((CuartoPanel)panelCuatro).setEvento(objetoControlador);
 		
 		pestanas.add("QUIOSCO", ((CuartoPanel)panelCuatro));
-		pestanas.setEnabledAt(pestanas.indexOfComponent(panelCuatro),false);
+		//pestanas.setEnabledAt(pestanas.indexOfComponent(panelCuatro),false);
 		add(pestanas);
 
 		//panel prueba imprimir
