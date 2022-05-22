@@ -78,9 +78,6 @@ public class IOManager extends JFrame implements CustomEventRespons {
 
 
 	//Métodos propios
-
-/////////
-
 	@Override
 	public void respuestaResultadoLogIn(boolean resultadoLogIn) {
 		((PrimerPanel)panelUno).mostrarResultadoLogIn(resultadoLogIn);
@@ -93,11 +90,23 @@ public class IOManager extends JFrame implements CustomEventRespons {
 			pestanas.setEnabledAt(pestanas.indexOfComponent(panelCuatro),false);
 		}
 	}
+	
+	@Override
+	public void respuestaRegistroPersonas(String resultadoImpresion) {
+		((SegundoPanel)panelDos).mostrarResultadoRegistro(resultadoImpresion);
+		
+	}
 
 	@Override
 	public void respuesta(String resultadoImpresion) {
 		//((SegundoPanel)panelDos).mostrarResultado(resultadoImpresion);
 		
+	}
+
+	//Manejo de Archivos
+	public String imprimirMensaje(String mensaje) {
+		JOptionPane.showMessageDialog(null, mensaje);
+		return null;
 	}
 
 }

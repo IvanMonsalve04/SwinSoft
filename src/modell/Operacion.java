@@ -18,10 +18,8 @@ public class Operacion {
 	private Boolean resultadoLogIn;
 	private String caracterUsuario;
 	private String caracterContraseña;
-	
-	//private Prueba panelPrueba;
+	private String mensajeInscripcion;
 	private JPanel panelUno;
-	private String resultado;
 
 	//Método Constructor
 	public Operacion() {
@@ -29,7 +27,6 @@ public class Operacion {
 		resultadoLogIn = false;
 		caracterUsuario = "admin";
 		caracterContraseña = "admin123";
-		resultado = "";
  	}
 
 	//Métodos propios
@@ -40,6 +37,11 @@ public class Operacion {
 			resultadoLogIn = false;
 		}
 		return resultadoLogIn;
+	}
+
+	public String realizarValidacionRegistro(String nombre, String apellido, String sexo, String identificacion, int cantidadNinos, int cantidadAdultos) {
+		mensajeInscripcion = "Los datos del cliente registrado son: \nNombre: " + nombre + "\nApellido: " + apellido + "\nSexo: " + sexo + "\nIdentificacion: " + identificacion + "\nCantidad de manillas niños: " + cantidadNinos + "\nCantidad de manillas adultos: " + cantidadAdultos;
+		return mensajeInscripcion;	
 	}
 
 	

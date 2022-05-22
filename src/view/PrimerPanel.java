@@ -98,7 +98,7 @@ public class PrimerPanel extends JPanel implements ActionListener {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);//exception  controlan el entorno
 		try {
-			ImagenDos = ImageIO.read(new File("resources\\Log In.jpeg"));
+			ImagenDos = ImageIO.read(new File("src\\resources\\Log In.jpeg"));
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "IMAGEN NO ENCONTRADA ");
 		}

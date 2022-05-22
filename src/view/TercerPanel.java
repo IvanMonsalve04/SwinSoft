@@ -159,8 +159,7 @@ public class TercerPanel extends JPanel implements ActionListener{
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);//exception  controlan el entorno
 		try {
-			ImagenDos = ImageIO.read(new File("C:\\Users\\Acer\\Desktop\\uni\\programacion\\Proyecto final\\tiendaDosEste.jpg"));
-			//ImagenDos = ImageIO.read(new File("C:\\Users\\ivan\\Downloads\\Tienda.jpeg"));
+			ImagenDos = ImageIO.read(new File("src\\resources\\FondoPanelTienda.jpg"));
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "IMAGEN NO ENCONTRADA ");
 		}

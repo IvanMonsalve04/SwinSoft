@@ -30,8 +30,7 @@ import java.awt.Image;
 
 public class SegundoPanel extends JPanel implements ActionListener {
 	
-	//JTabbet
-	private JTabbedPane pestana;
+	private JTabbedPane Pestana;
 
 	//variables etiquetas
 	private JLabel etiquetaUno;
@@ -42,10 +41,8 @@ public class SegundoPanel extends JPanel implements ActionListener {
 	private JLabel etiquetaNiños;
 	private JLabel etiquetaMayores;
 	private JLabel resultado;
- 
 	private Image ImagenDos;
 
-	//variables fuentes
 	//Fuentes
 	private Font fuente;
 	private Font fuenteDos; 
@@ -58,13 +55,8 @@ public class SegundoPanel extends JPanel implements ActionListener {
 	private JTextField contenidoManillasNinos;
 	private JTextField contenidoManillasAdultos;
 
-	private JTabbedPane pestanas;
-
 	private Imprimir panelImprimir;
 
-	
-	
-	
 	//variables para Boton
 	private JButton botonUno;
 
@@ -72,7 +64,6 @@ public class SegundoPanel extends JPanel implements ActionListener {
 	private CustomEvent evento;
 
 	//String o Int
-	
 	private String resultadoVista;
 
 	
@@ -158,22 +149,12 @@ public class SegundoPanel extends JPanel implements ActionListener {
 		botonUno.setActionCommand("Primer Boton");
 		botonUno.addActionListener(this);
 		add(botonUno);
-		
-		
-
-	
-
-		
-
 	}
 
 	//Métodos Propios
-	
-
-
-	
-
-
+	public void mostrarResultadoRegistro(String resultadoImpresion) {
+		String resultadoVista = resultadoImpresion.toString();
+	}
 
 	//Gráficos de imagen
 	public void paintComponent(Graphics g) {
@@ -183,8 +164,7 @@ public class SegundoPanel extends JPanel implements ActionListener {
 		g.setColor(Color.yellow);
 		g.drawRect(30, 30, 100, 30);//rectangulo g 
 		try {
-			ImagenDos = ImageIO.read(new File("C:\\Users\\Acer\\Desktop\\uni\\programacion\\Proyecto final\\SegundoPanel.jpg"));
-			//ImagenDos = ImageIO.read(new File("C:\\Users\\ivan\\Downloads\\PanelDos.jpeg"));
+			ImagenDos = ImageIO.read(new File("src\\resources\\panelDos.jpg"));
 			super.paintComponent(g);//herencia para poner color en g
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "IMAGEN NO ENCONTRADA ");
@@ -205,23 +185,27 @@ public class SegundoPanel extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		JOptionPane.showMessageDialog(null, "Click");
-
-		
-
-
-
-		
-       
+		//JOptionPane.showMessageDialog(null, "Click");
+		PrimerPanel segundaPestaña = new PrimerPanel();
+        Pestanas.add("Pestaña2", segundaPestaña);
+        Pestanas.setSelectedComponent(segundaPestaña);
+		Pestanas.setseleccion(segundaPestaña);
 	
-		
+		String nombre = (contenidoNombre.getText());
+		String apellido =(contenidoApellido.getText());
+		String sexo = (contenidoNombre.getText());
+		String identificacion = (contenidoApellido.getText());
+		int cantidadNinos = Integer.parseInt(contenidoManillasNinos.getText());
+		int cantidadAdultos = Integer.parseInt(contenidoManillasAdultos.getText());
 
-		
+		evento.retornarImpresionPersonas(nombre, apellido, sexo, identificacion, cantidadNinos, cantidadAdultos);
 
-
-		
-
-		
+		contenidoNombre.setText(" ");
+		contenidoApellido.setText(" ");
+		contenidoSexo.setText(" ");
+		contenidoIdentificacion.setText(" ");
+		contenidoManillasNinos.setText(" ");
+		contenidoManillasAdultos.setText(" ");
 	}
 	
 	

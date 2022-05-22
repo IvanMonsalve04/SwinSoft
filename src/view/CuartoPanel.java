@@ -149,14 +149,6 @@ public class CuartoPanel extends JPanel implements ActionListener {
 		contenidoProtector.setBounds(420, 320, 40, 20);
 		add(contenidoProtector);
 
-		
-
-
-
-
-
-
-
 	}
 
 
@@ -164,8 +156,7 @@ public class CuartoPanel extends JPanel implements ActionListener {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);//exception  controlan el entorno
 		try {
-			ImagenDos = ImageIO.read(new File("C:\\Users\\Acer\\Desktop\\uni\\programacion\\Proyecto final\\cierreCaja.jpg"));
-			//ImagenDos = ImageIO.read(new File("C:\\Users\\ivan\\Downloads\\CierreCaja.jpeg"));
+			ImagenDos = ImageIO.read(new File("src\\resources\\SegundoPanel.jpg"));
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "IMAGEN NO ENCONTRADA ");
 		}
