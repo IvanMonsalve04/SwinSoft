@@ -20,6 +20,7 @@ public class Operacion {
 	private String caracterContraseña;
 	private String mensajeInscripcion;
 	private String mensajeDatos;
+	private int reciboEntradas;
 
 	//Método Constructor
 	public Operacion() {
@@ -46,6 +47,7 @@ public class Operacion {
 
 	public String realizarValidacionDatos(String nombre, String apellido, String sexo, String identificacion, int cantidadNinos, int cantidadAdultos) {
 		mensajeDatos= "Los datos del cliente registrado son: \nNombre: " + nombre + "\nApellido: " + apellido + "\nSexo: " + sexo + "\nIdentificacion: " + identificacion + "\nCantidad de manillas niños: " + cantidadNinos + "\nCantidad de manillas adultos: " + cantidadAdultos;
+		
 		return mensajeDatos;	
 	}
 	
