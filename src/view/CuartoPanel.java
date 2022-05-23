@@ -33,45 +33,48 @@ public class CuartoPanel extends JPanel implements ActionListener {
 	//String o Int
 	private String resultadoVista;
 
+	private int cantidadTraje;
+	private int cantidadGafas;
+	private int cantidadAletas;
+	private int cantidadGorros;
+	private int cantidadProtector;
+	private int cantidadProtectorCelular;
+
 	//variables contenidos
 	private JTextField contenidoAletas;
 	private JTextField contenidoTraje;
 	private JTextField contenidoGorros;
 	private JTextField contenidoProtector ;
-	
-	
 	private JTextField  contenidoGafasSol;
+	private JTextField contenidoProtectorCelular;
 
 	//variables etiquetas
+	private JLabel etiquetaProducto;
 	private JLabel etiquetaTraje;
-	private JLabel etiquetaUno;
-	private JLabel etiquetaDos;
-	private JLabel etiquetaTres;
-	private JLabel etiquetaCuatro;
-	private JLabel etiquetaCinco;
-	private JLabel etiquetaSeis;
-	private JLabel etiquetaPrecio;
-	private JLabel etiquetaTitulo;
-	private JLabel etiquetaCantidad;
-	private JLabel etiquetaPrecioTraje;
 	private JLabel etiquetaGafas;
 	private JLabel etiquetaAletas;
 	private JLabel etiquetaGorros;
 	private JLabel etiquetaProtector ;
+	private JLabel etiquetaProtectorCelular;
+	private JLabel etiquetaPrecio;
+	private JLabel etiquetaTitulo;
+	private JLabel etiquetaCantidad;
+	private JLabel etiquetaPrecioTraje;
+	private JLabel etiquetaPrecioGafas;
+	private JLabel etiquetaPrecioAletas;
+	private JLabel etiquetaPrecioGorros;
+	private JLabel etiquetaPrecioProtector;
+	private JLabel etiquetaPrecioProtectorCelular;
+	
 
+	private CustomEvent evento;
 	
 	private JLabel etiquetaCelular;
 
 	//variables para Boton
 	private JButton botonAceptarQuiosco;
-	
-
 
 	public CuartoPanel(){
-
-
-
-
 		resultadoVista = " ";
 		setLayout(null);
 
@@ -84,11 +87,11 @@ public class CuartoPanel extends JPanel implements ActionListener {
 		etiquetaTitulo.setForeground(java.awt.Color.decode("#0B2B7C"));
 		//add(etiquetaTitulo);
 
-		etiquetaUno = new JLabel("PRODUCTO");
-		etiquetaUno.setForeground(java.awt.Color.decode("#717137"));
-		etiquetaUno.setBounds(110, 60, 300, 50);
-		etiquetaUno.setFont(fuente);
-		add(etiquetaUno);
+		etiquetaProducto = new JLabel("PRODUCTO");
+		etiquetaProducto.setForeground(java.awt.Color.decode("#717137"));
+		etiquetaProducto.setBounds(110, 60, 300, 50);
+		etiquetaProducto.setFont(fuente);
+		add(etiquetaProducto);
 
 		etiquetaPrecio = new JLabel("PRECIO");
 		etiquetaPrecio.setForeground(java.awt.Color.decode("#717137"));
@@ -109,99 +112,96 @@ public class CuartoPanel extends JPanel implements ActionListener {
 		etiquetaTraje.setFont(fuenteDos);
 		add(etiquetaTraje);
 
-		contenidoTraje = new JTextField("");
-		contenidoTraje.setBounds(500, 120, 40, 20);
-
 		etiquetaPrecioTraje= new JLabel("20.000");
 		etiquetaPrecioTraje.setBounds(320, 90, 200, 100);
 		etiquetaPrecioTraje.setForeground(java.awt.Color.decode("#1E2A8C"));
 		etiquetaPrecioTraje.setFont(fuenteDos);
 		add(etiquetaPrecioTraje);
-		
+
+		contenidoTraje = new JTextField("");
+		contenidoTraje.setBounds(500, 120, 40, 20);
 		add(contenidoTraje);
 
-		etiquetaDos = new JLabel("GAFAS DE SOL");
-		etiquetaDos.setBounds(120, 70, 200, 200);
-		etiquetaDos.setForeground(java.awt.Color.decode("#97970D"));
-		etiquetaDos.setFont(fuenteDos);
-		add(etiquetaDos);
-
-		etiquetaGafas = new JLabel("15.000");
-		etiquetaGafas.setBounds(320, 70, 200, 200);
+		etiquetaGafas = new JLabel("GAFAS DE SOL");
+		etiquetaGafas.setBounds(120, 70, 200, 200);
 		etiquetaGafas.setForeground(java.awt.Color.decode("#97970D"));
 		etiquetaGafas.setFont(fuenteDos);
 		add(etiquetaGafas);
+
+		etiquetaPrecioGafas = new JLabel("15.000");
+		etiquetaPrecioGafas.setBounds(320, 70, 200, 200);
+		etiquetaPrecioGafas.setForeground(java.awt.Color.decode("#97970D"));
+		etiquetaPrecioGafas.setFont(fuenteDos);
+		add(etiquetaPrecioGafas);
 
 		contenidoGafasSol = new JTextField();
 		contenidoGafasSol.setBounds(500, 160, 40, 20);
 		add(contenidoGafasSol);
 		
-		etiquetaTres = new JLabel("ALETAS");
-		etiquetaTres.setForeground(java.awt.Color.decode("#1E2A8C"));
-		etiquetaTres.setBounds(120, 110, 200, 200);
-		etiquetaTres.setFont(fuenteDos);
-		add(etiquetaTres);
-
-		etiquetaAletas = new JLabel("30.000");
+		etiquetaAletas = new JLabel("ALETAS");
 		etiquetaAletas.setForeground(java.awt.Color.decode("#1E2A8C"));
-		etiquetaAletas.setBounds(320, 110, 200, 200);
+		etiquetaAletas.setBounds(120, 110, 200, 200);
 		etiquetaAletas.setFont(fuenteDos);
 		add(etiquetaAletas);
+
+		etiquetaPrecioAletas = new JLabel("30.000");
+		etiquetaPrecioAletas.setForeground(java.awt.Color.decode("#1E2A8C"));
+		etiquetaPrecioAletas.setBounds(320, 110, 200, 200);
+		etiquetaPrecioAletas.setFont(fuenteDos);
+		add(etiquetaPrecioAletas);
 
 		contenidoAletas = new JTextField();
 		contenidoAletas.setBounds(500, 200, 40, 20);
 		add(contenidoAletas);
 
-		etiquetaCuatro = new JLabel("GORROS DE PISCINA");
-		etiquetaCuatro.setBounds(120, 150, 200, 200);
-		etiquetaCuatro.setForeground(java.awt.Color.decode("#97970D"));
-		etiquetaCuatro.setFont(fuenteDos);
-		add(etiquetaCuatro);
-
-		etiquetaGorros = new JLabel("3.000");
-		etiquetaGorros.setBounds(320, 150, 200, 200);
+		etiquetaGorros = new JLabel("GORROS DE PISCINA");
+		etiquetaGorros.setBounds(120, 150, 200, 200);
 		etiquetaGorros.setForeground(java.awt.Color.decode("#97970D"));
 		etiquetaGorros.setFont(fuenteDos);
 		add(etiquetaGorros);
+
+		etiquetaPrecioGorros = new JLabel("3.000");
+		etiquetaPrecioGorros.setBounds(320, 150, 200, 200);
+		etiquetaPrecioGorros.setForeground(java.awt.Color.decode("#97970D"));
+		etiquetaPrecioGorros.setFont(fuenteDos);
+		add(etiquetaPrecioGorros);
 
 		contenidoGorros = new JTextField();
 		contenidoGorros.setBounds(500, 240, 40, 20);
 		add(contenidoGorros);
 
-		etiquetaCinco = new JLabel("PROTECTOR SOLAR");
-		etiquetaCinco.setBounds(120, 190, 280, 200);
-		etiquetaCinco.setForeground(java.awt.Color.decode("#1E2A8C"));
-		etiquetaCinco.setFont(fuenteDos);
-		add(etiquetaCinco);
-
-		etiquetaProtector = new JLabel("25.000");
-		etiquetaProtector.setBounds(320, 190, 280, 200);
+		etiquetaProtector = new JLabel("PROTECTOR SOLAR");
+		etiquetaProtector.setBounds(120, 190, 280, 200);
 		etiquetaProtector.setForeground(java.awt.Color.decode("#1E2A8C"));
 		etiquetaProtector.setFont(fuenteDos);
 		add(etiquetaProtector);
 
+		etiquetaPrecioProtector = new JLabel("25.000");
+		etiquetaPrecioProtector.setBounds(320, 190, 280, 200);
+		etiquetaPrecioProtector.setForeground(java.awt.Color.decode("#1E2A8C"));
+		etiquetaPrecioProtector.setFont(fuenteDos);
+		add(etiquetaPrecioProtector);
+
 		contenidoProtector = new JTextField();
 		contenidoProtector.setBounds(500, 280, 40, 20);
-		add(contenidoProtector );
-
-		etiquetaSeis = new JLabel("PROTECTOR CELULAR");
-		etiquetaSeis.setForeground(java.awt.Color.decode("#97970D"));
-		etiquetaSeis.setBounds(120, 230, 400, 200);
-		etiquetaSeis.setFont(fuenteDos);
-		add(etiquetaSeis);
-
-		etiquetaCelular = new JLabel("12.000");
-		etiquetaCelular.setForeground(java.awt.Color.decode("#97970D"));
-		etiquetaCelular.setBounds(320, 230, 400, 200);
-		etiquetaCelular.setFont(fuenteDos);
-		add(etiquetaCelular);
-
-
-		contenidoProtector = new JTextField();
-		contenidoProtector.setBounds(500, 320, 40, 20);
 		add(contenidoProtector);
-	
 
+		etiquetaProtectorCelular = new JLabel("PROTECTOR CELULAR");
+		etiquetaProtectorCelular.setForeground(java.awt.Color.decode("#97970D"));
+		etiquetaProtectorCelular.setBounds(120, 230, 400, 200);
+		etiquetaProtectorCelular.setFont(fuenteDos);
+		add(etiquetaProtectorCelular);
+
+		etiquetaPrecioProtectorCelular = new JLabel("12.000");
+		etiquetaPrecioProtectorCelular.setForeground(java.awt.Color.decode("#97970D"));
+		etiquetaPrecioProtectorCelular.setBounds(320, 230, 400, 200);
+		etiquetaPrecioProtectorCelular.setFont(fuenteDos);
+		add(etiquetaPrecioProtectorCelular);
+
+		contenidoProtectorCelular = new JTextField();
+		contenidoProtector.setBounds(500, 320, 40, 20);
+		add(contenidoProtectorCelular);
+	
 
 		botonAceptarQuiosco = new JButton("ACEPTAR");
 		botonAceptarQuiosco.setForeground(java.awt.Color.decode("#97970D"));
@@ -211,6 +211,10 @@ public class CuartoPanel extends JPanel implements ActionListener {
 		add(botonAceptarQuiosco);
 	}
 
+	//Métodos propios
+	public void mostrarResultadoQuiosco(int resultadoQuiosco) {
+		String resultadoVista = Integer.toString(resultadoQuiosco);
+	}
 
      //Gráficos de imagen
 	public void paintComponent(Graphics g) {
@@ -223,15 +227,36 @@ public class CuartoPanel extends JPanel implements ActionListener {
 		g.drawImage(ImagenDos, 0, 0, null);//movemos imagen
 	}
 
+	//Gets and Sets
+	public CustomEvent getEvento() {
+		return evento;
+	}
+
+	public void setEvento(CustomEvent evento) {
+		this.evento = evento;
+	}
 
     @Override
-    public void actionPerformed(ActionEvent arg0) {
-        // TODO Auto-generated method stub
+    public void actionPerformed(ActionEvent e) {
+		JOptionPane.showMessageDialog(null, "Se ha registrado la información.");
+	    
+		cantidadTraje = Integer.parseInt(contenidoTraje.getText());
+		cantidadGafas = Integer.parseInt(contenidoGafasSol.getText());
+		cantidadAletas = Integer.parseInt(contenidoAletas.getText());
+		cantidadGorros = Integer.parseInt(contenidoGorros.getText());
+		cantidadProtector = Integer.parseInt(contenidoProtector.getText());
+		cantidadProtectorCelular = Integer.parseInt(contenidoProtectorCelular.getText());
+
+		evento.retornarCalculoQuiosco(cantidadTraje, cantidadGafas, cantidadAletas, cantidadGorros, cantidadProtector, cantidadProtectorCelular);
         
+		contenidoTraje.setText("");
+		contenidoGafasSol.setText("");
+		contenidoAletas.setText("");
+		contenidoGorros.setText("");
+		contenidoProtector.setText("");
+		contenidoProtectorCelular.setText("");
+		
     }
 
-
-	public void setEvento(Controller objetoControlador) {
-	}
 
 }

@@ -1,0 +1,9 @@
+
+SWIM SOFT TIENDA
+
+Valor CocaCola: 6000
+Valor agua: 0
+Valor jugo: 5000
+Valor sandwitch: 2000
+Valor cerveza:  3000
+Valor empanada:  0

@@ -56,12 +56,12 @@ public class TercerPanel extends JPanel implements ActionListener{
 	private JButton botonAceptar;
 
 	//variables int o String
-	int cocaCola;
-	int agua;
-	int jugo;
-	int sandwitch;
-	int cerveza;
-	int empanada;
+	private int cocaCola;
+	private int agua;
+	private int jugo;
+	private int sandwitch;
+	private int cerveza;
+	private int empanada;
 
 	//evento
 	private CustomEvent evento;
@@ -212,14 +212,7 @@ public class TercerPanel extends JPanel implements ActionListener{
 		botonAceptar.setActionCommand("Segundo Boton");
 		botonAceptar.addActionListener(this);
 		add(botonAceptar);
-
-
-
 	}
-
-
-
-
 
 
 
@@ -250,7 +243,7 @@ public class TercerPanel extends JPanel implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent arg0) {
 
-		JOptionPane.showMessageDialog(null, "click two");
+		JOptionPane.showMessageDialog(null, "Se ha registrado la información.");
 
 	    cocaCola = Integer.parseInt(contenidoCocaCola.getText());
 		agua = Integer.parseInt(contenidoAgua.getText());
@@ -260,7 +253,7 @@ public class TercerPanel extends JPanel implements ActionListener{
 		empanada =  Integer.parseInt(contenidoEmpanada.getText());
 
 
-		evento.retornarCalculo(cocaCola,agua,jugo,sandwitch,cerveza,empanada);
+		evento.retornarCalculo(cocaCola, agua, jugo, sandwitch, cerveza, empanada);
         
 		contenidoCocaCola.setText("");
 		contenidoAgua.setText("");
@@ -268,14 +261,6 @@ public class TercerPanel extends JPanel implements ActionListener{
 		contenidoSandwitch.setText("");
 		contenidoSalchichon.setText("");
 		contenidoEmpanada.setText("");
-
-
-		// TODO Auto-generated method stub
-        
     }
-
-    
-
-    
 
 }

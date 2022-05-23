@@ -20,7 +20,7 @@ public class IOManager extends JFrame implements CustomEventRespons {
 	private JPanel panelImprimir;
 	private SegundoPanel panelDos;
 	private TercerPanel panelTres;
-	private CuartoPanel panelCuatro;
+	private JPanel panelCuatro;
 	private JTabbedPane pestanas;
 
 	
@@ -103,18 +103,13 @@ public class IOManager extends JFrame implements CustomEventRespons {
 	}
 
 	@Override
-	public void respuesta(String resultadoImpresion) {
-		
-		
-	}
-
-
-
-	@Override
 	public void respuestaCalculo(int resultadoCalculo) {
 		((TercerPanel)panelTres).mostrarResultadoCalculo(resultadoCalculo);
-		// TODO Auto-generated method stub
-		
+	}
+
+	@Override
+	public void respuestaQuiosco(int resultadoQuiosco) {
+		((CuartoPanel)panelCuatro).mostrarResultadoQuiosco(resultadoQuiosco);
 	}
 
 	

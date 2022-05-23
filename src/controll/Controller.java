@@ -64,7 +64,8 @@ public class Controller implements CustomEvent {
 		eventoRespuesta.respuestaRegistroPersonas(resultadoImpresion);
 	
 		JOptionPane.showMessageDialog(null, resultadoImpresion);
-		objetoArchivos = new File("src\\resources\\Segundo.txt");
+		//objetoArchivos = new File("src\\resources\\RegistroClientes.txt");
+		objetoArchivos = new File("src\\resources\\" + identificacion + ".txt");
 		
 
 		try {
@@ -86,31 +87,60 @@ public class Controller implements CustomEvent {
 			mensaje = "El archivo no se puede crear.";
 		}
 
-
-
 	}
+
 	@Override
 	public void retornarCalculo(int cocaCola, int agua, int jugo, int sandwitch, int cerveza, int empanada) {
-		// TODO Auto-generated method stub
-		int resultadoImpresion = objetoOperaciones.realizarValidacionCalculo(cocaCola,agua,jugo,sandwitch,cerveza,empanada);
+		int resultadoImpresion = objetoOperaciones.realizarValidacionCalculo(cocaCola, agua, jugo, sandwitch, cerveza, empanada);
 		
 		JOptionPane.showMessageDialog(null, resultadoImpresion);
 		
-		objetoArchivos = new File("src\\resources\\RegistroCliente.txt");
+		objetoArchivos = new File("src\\resources\\RegistroTienda.txt");
 		
-
 		try {
 		
 			escribirArchivo = new BufferedWriter(new FileWriter(objetoArchivos)); // Se crea el archivo
 			
 			escribirArchivo.write("\nSWIM SOFT TIENDA\n");
 			escribirArchivo.newLine();
-			escribirArchivo.write("Valor empanada:  " + cocaCola*3000);
-			escribirArchivo.write("\nValor agua:  " + agua*1800);
-			escribirArchivo.write("\nValor jugo:  " + jugo*2500);
-			escribirArchivo.write("\nValor sandwitch:  " + sandwitch*2000);
-			escribirArchivo.write("\nValor cerveza:  " + cerveza*3000);
-			escribirArchivo.write("\nValor empaada:  " + empanada*2500);
+			escribirArchivo.write("Valor CocaCola: " + (cocaCola * 3000));
+			escribirArchivo.write("\nValor agua: " + (agua * 1800));
+			escribirArchivo.write("\nValor jugo: " + (jugo * 2500));
+			escribirArchivo.write("\nValor sandwitch: " + (sandwitch * 2000));
+			escribirArchivo.write("\nValor cerveza:  " + (cerveza * 3000));
+			escribirArchivo.write("\nValor empanada:  " + (empanada * 2500));
+			escribirArchivo.close();
+			mensaje = "Tu archivo se ha creado y ya tiene datos";
+		} catch (IOException e) {
+			e.printStackTrace();
+			mensaje = "El archivo no se puede crear.";
+		}
+
+		
+		eventoRespuesta.respuestaCalculo(resultadoImpresion);
+
+	}
+
+	@Override
+	public void retornarCalculoQuiosco(int cantidadTraje, int cantidadGafas, int cantidadAletas, int cantidadGorros, int cantidadProtector, int cantidadProtectorCelular) {
+		int resultadoImpresion = objetoOperaciones.realizarCalculoQuiosco(cantidadTraje, cantidadGafas, cantidadAletas, cantidadGorros, cantidadProtector, cantidadProtectorCelular);
+		
+		JOptionPane.showMessageDialog(null, resultadoImpresion);
+		
+		objetoArchivos = new File("src\\resources\\RegistroQuiosco.txt");
+		
+		try {
+		
+			escribirArchivo = new BufferedWriter(new FileWriter(objetoArchivos)); // Se crea el archivo
+			
+			escribirArchivo.write("\nSWIM SOFT QUIOSCO\n");
+			escribirArchivo.newLine();
+			escribirArchivo.write("Valor traje de baño: " + (cantidadTraje * 3000));
+			escribirArchivo.write("\nValor gafas: " + (cantidadGafas * 1800));
+			escribirArchivo.write("\nValor aletas: " + (cantidadAletas * 2500));
+			escribirArchivo.write("\nValor gorro: " + (cantidadGorros * 2000));
+			escribirArchivo.write("\nValor protector solar:  " + (cantidadProtector * 3000));
+			escribirArchivo.write("\nValor protector celular:  " + (cantidadProtectorCelular * 2500));
 			escribirArchivo.close();
 			mensaje = "Tu archivo se ha creado y ya tiene datos";
 		} catch (IOException e) {

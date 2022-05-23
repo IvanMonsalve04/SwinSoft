@@ -4,6 +4,7 @@ import view.PrimerPanel;
 import view.SegundoPanel;
 
 import javax.lang.model.util.SimpleTypeVisitor14;
+import javax.naming.CannotProceedException;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.plaf.PanelUI;
@@ -51,12 +52,13 @@ public class Operacion {
 		return mensajeDatos;	
 	}
 
-	public int realizarValidacionCalculo(int cocaCola , int agua, int jugo, int sandwitch, int cerveza, int empanada){
-        
-	
-		
-		mensajeCalculo = +cocaCola*3000+agua*1800+jugo*2500+sandwitch*2000+cerveza*3000+empanada*2500;
+	public int realizarValidacionCalculo(int cocaCola , int agua, int jugo, int sandwitch, int cerveza, int empanada){	
+		mensajeCalculo = ((cocaCola*3000) + (agua*1800) + (jugo*2500) + (sandwitch*2000) + (cerveza*3000) + (empanada*2500));
+		return mensajeCalculo;
+	}
 
+	public int realizarCalculoQuiosco(int cantidadTraje, int cantidadGafas, int cantidadAletas, int cantidadGorros, int cantidadProtector, int cantidadProtectorCelular){	
+		mensajeCalculo = ((cantidadTraje * 20000) + (cantidadGafas * 15000) + (cantidadAletas * 3000) + (cantidadGorros * 3000) + (cantidadProtector * 25000) + (cantidadProtectorCelular * 1200));
 		return mensajeCalculo;
 	}
 	

@@ -236,22 +236,17 @@ public class SegundoPanel extends JPanel implements ActionListener {
 
 		evento.retornarImpresionPersonas(nombre, apellido, sexo, identificacion, cantidadNinos, cantidadAdultos);
 
-		contenidoNombre.setText(" ");
-		contenidoApellido.setText(" ");
-		contenidoSexo.setText(" ");
-		contenidoIdentificacion.setText(" ");
-		contenidoManillasNinos.setText(" ");
-		contenidoManillasAdultos.setText(" ");
+		contenidoNombre.setText("");
+		contenidoApellido.setText("");
+		contenidoSexo.setText("");
+		contenidoIdentificacion.setText("");
+		contenidoManillasNinos.setText("");
+		contenidoManillasAdultos.setText("");
 	
 	}
 
 	//Manejo de Archivos
 	public String imprimirMensaje(String mensaje) {
-
-		
-
-		
-
 		JOptionPane.showMessageDialog(null, mensaje);
 		return null;
 	}
