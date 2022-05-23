@@ -1,7 +1,9 @@
-BIENVENIDO A SWIM SOFT.
-Nombre comprador:  Andres
-Apellido:  Montañez
-Sexo comprador:  Andres
-Identificacion comprador:  Montañez
-Cantidad de manillas para niños:  1
-Cantidad manillas para adultos:  4
+
+SWIM SOFT ENTRADA DE PERSONAS
+
+Nombre comprador:  andres
+Apellido:  montanez
+Sexo comprador:  masculino
+Identificacion comprador:  123421
+Cantidad de manillas para ninos:  2
+Cantidad manillas para adultos:  5

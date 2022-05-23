@@ -222,6 +222,8 @@ public class TercerPanel extends JPanel implements ActionListener{
     public void actionPerformed(ActionEvent arg0) {
 
 		JOptionPane.showMessageDialog(null, "click two");
+
+
         // TODO Auto-generated method stub
         
     }

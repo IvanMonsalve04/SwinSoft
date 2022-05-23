@@ -1,6 +1,8 @@
 package view;
 
 import java.awt.*;
+import java.time.LocalDate;
+
 import javax.swing.*;
 
 import controll.Controller;
@@ -30,6 +32,8 @@ public class IOManager extends JFrame implements CustomEventRespons {
 
 		
 
+		
+
 		objetoControlador = new Controller();
        //con esto comunicamos los objetos en el modelo
 		objetoControlador.setEventoRespuesta(this);
@@ -51,7 +55,7 @@ public class IOManager extends JFrame implements CustomEventRespons {
 		panelDos = new SegundoPanel();
 		((SegundoPanel)panelDos).setEvento(objetoControlador);
 		pestanas.add("ACCESO", ((SegundoPanel)panelDos));
-		pestanas.setEnabledAt(pestanas.indexOfComponent(panelDos),false);
+		//pestanas.setEnabledAt(pestanas.indexOfComponent(panelDos),false);
 		add(pestanas);
 		
 		panelTres= new TercerPanel();

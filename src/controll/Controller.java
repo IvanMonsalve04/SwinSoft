@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 
 import javax.swing.JOptionPane;
 
@@ -55,17 +56,22 @@ public class Controller implements CustomEvent {
 
 	@Override
 	public void retornarImpresionPersonas(String nombre, String apellido, String sexo, String identificacion, int cantidadNinos, int cantidadAdultos) {
+		
 		String resultadoImpresion = objetoOperaciones.realizarValidacionRegistro(nombre, apellido, sexo, identificacion, cantidadNinos, cantidadAdultos);
+		
 		//System.out.println(resultadoImpresion);
 		
 		eventoRespuesta.respuestaRegistroPersonas(resultadoImpresion);
 	
+		JOptionPane.showMessageDialog(null, resultadoImpresion);
 		objetoArchivos = new File("src\\resources\\Segundo.txt");
 		
 
 		try {
+		
 			escribirArchivo = new BufferedWriter(new FileWriter(objetoArchivos)); // Se crea el archivo
-			escribirArchivo.write("BIENVENIDO A SWIM SOFT.");
+			
+			escribirArchivo.write("\nSWIM SOFT ENTRADA DE PERSONAS\n");
 			escribirArchivo.newLine();
 			escribirArchivo.write("Nombre comprador:  " + nombre);
 			escribirArchivo.write("\nApellido:  " + apellido);
@@ -81,13 +87,10 @@ public class Controller implements CustomEvent {
 		}
 
 
+
 	}
 
-	//Manejo de Archivos
-	public String escribirArchivo(String nombre, String apellido, String sexo, String identificacion, int cantidadNinos, int cantidadAdultos) {
-		
-		return objetoSegundoPanel.imprimirMensaje(mensaje);
-	}
+	
 
 	//Gets and Sets
 	public CustomEventRespons getEventoRespuesta() {
@@ -102,7 +105,7 @@ public class Controller implements CustomEvent {
 	public void init() {
 		IOManager objetoIOManager = new IOManager();
 		objetoIOManager.setVisible(true);
-		escribirArchivo(mensaje, mensaje, mensaje, mensaje, 0, 0);
+		
 	}
 	
 }
