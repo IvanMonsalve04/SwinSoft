@@ -21,7 +21,14 @@ public class TercerPanel extends JPanel implements ActionListener{
 
 	//variables etiquetas
 	private JLabel etiquetaProducto;
+	private JLabel etiquetaPrecioCoca;
+	private JLabel etiquetaJugo;
+	private JLabel etiquetaAgua;
+	private JLabel etiquetaPrecio;
 	private JLabel etiquetaCantidad;
+	private JLabel etiquetaSandwitch;
+	private JLabel etiquetaCerveza;
+	private JLabel etiquetaEmpanada;
 	private JLabel etiquetaUno;
 	private JLabel etiquetaDos;
 	private JLabel etiquetaTres;
@@ -29,6 +36,7 @@ public class TercerPanel extends JPanel implements ActionListener{
 	private JLabel etiquetaCuatro;
 	private JLabel etiquetaCinco;
 	private JLabel etiquetaSeis;
+
 
 
 	//variables fuentes
@@ -60,18 +68,24 @@ public class TercerPanel extends JPanel implements ActionListener{
 		etiquetaTitulo.setBounds(240, 470, 500, 80);
 		etiquetaTitulo.setFont(fuente);
 		etiquetaTitulo.setForeground(java.awt.Color.decode("#717137"));
-		add(etiquetaTitulo);
+		//add(etiquetaTitulo);
 
 
 
-		etiquetaProducto = new JLabel("NOMBRE PRODUCTO");
+		etiquetaProducto = new JLabel("PRODUCTO");
 		etiquetaProducto.setForeground(java.awt.Color.decode("#717137"));
-		etiquetaProducto.setBounds(110, 20, 300, 50);
+		etiquetaProducto.setBounds(110, 60, 300, 50);
 		etiquetaProducto.setFont(fuente);
 		add( etiquetaProducto);
 
+		etiquetaPrecio = new JLabel("PRECIO");
+		etiquetaPrecio.setForeground(java.awt.Color.decode("#717137"));
+		etiquetaPrecio.setBounds(320, 60, 300, 50);
+		etiquetaPrecio.setFont(fuente);
+		add( etiquetaPrecio);
+
 		etiquetaCantidad = new JLabel("CANTIDAD");
-		etiquetaCantidad.setBounds(400, 20, 200, 50);
+		etiquetaCantidad.setBounds(480, 60, 200, 50);
 		etiquetaCantidad.setForeground(java.awt.Color.decode("#717137"));
 		etiquetaCantidad.setFont(fuente);
 		add( etiquetaCantidad);
@@ -83,8 +97,14 @@ public class TercerPanel extends JPanel implements ActionListener{
 		etiquetaUno.setFont(fuenteDos);
 		add(etiquetaUno);
 
+		etiquetaPrecioCoca= new JLabel("3.000");
+		etiquetaPrecioCoca.setBounds(320, 90, 200, 100);
+		etiquetaPrecioCoca.setForeground(java.awt.Color.decode("#1E2A8C"));
+		etiquetaPrecioCoca.setFont(fuenteDos);
+		add(etiquetaPrecioCoca);
+
 		contenidoCocaCola = new JTextField("");
-		contenidoCocaCola.setBounds(420, 120, 40, 20);
+		contenidoCocaCola.setBounds(500, 120, 40, 20);
 		
 		add(contenidoCocaCola);
 
@@ -94,8 +114,14 @@ public class TercerPanel extends JPanel implements ActionListener{
 		etiquetaDos.setFont(fuenteDos);
 		add(etiquetaDos);
 
+		etiquetaAgua = new JLabel("1.800");
+		etiquetaAgua.setBounds(320, 70, 200, 200);
+		etiquetaAgua.setForeground(java.awt.Color.decode("#97970D"));
+		etiquetaAgua.setFont(fuenteDos);
+		add(etiquetaAgua);
+
 		contenidoAgua = new JTextField();
-		contenidoAgua.setBounds(420, 160, 40, 20);
+		contenidoAgua.setBounds(500, 160, 40, 20);
 		add(contenidoAgua);
 		
 		etiquetaTres = new JLabel("JUGO NATURAL");
@@ -104,8 +130,14 @@ public class TercerPanel extends JPanel implements ActionListener{
 		etiquetaTres.setFont(fuenteDos);
 		add(etiquetaTres);
 
+		etiquetaJugo = new JLabel("2.500");
+		etiquetaJugo.setForeground(java.awt.Color.decode("#1E2A8C"));
+		etiquetaJugo.setBounds(320, 110, 200, 200);
+		etiquetaJugo.setFont(fuenteDos);
+		add(etiquetaJugo);
+
 		contenidoJugo = new JTextField();
-		contenidoJugo.setBounds(420, 200, 40, 20);
+		contenidoJugo.setBounds(500, 200, 40, 20);
 		add(contenidoJugo);
 
 		etiquetaCuatro = new JLabel("SANDWITCH");
@@ -114,18 +146,30 @@ public class TercerPanel extends JPanel implements ActionListener{
 		etiquetaCuatro.setFont(fuenteDos);
 		add(etiquetaCuatro);
 
+		etiquetaSandwitch = new JLabel("2.000");
+		etiquetaSandwitch.setBounds(320, 150, 200, 200);
+		etiquetaSandwitch.setForeground(java.awt.Color.decode("#97970D"));
+		etiquetaSandwitch.setFont(fuenteDos);
+		add(etiquetaSandwitch);
+
 		contenidoSandwitch = new JTextField();
-		contenidoSandwitch.setBounds(420, 240, 40, 20);
+		contenidoSandwitch.setBounds(500, 240, 40, 20);
 		add(contenidoSandwitch);
 
-		etiquetaCinco = new JLabel("SALCHICHON");
+		etiquetaCinco = new JLabel("CERVEZA");
 		etiquetaCinco.setBounds(120, 190, 280, 200);
 		etiquetaCinco.setForeground(java.awt.Color.decode("#1E2A8C"));
 		etiquetaCinco.setFont(fuenteDos);
 		add(etiquetaCinco);
 
+		etiquetaCerveza = new JLabel("3.000");
+		etiquetaCerveza.setBounds(320, 190, 280, 200);
+		etiquetaCerveza.setForeground(java.awt.Color.decode("#1E2A8C"));
+		etiquetaCerveza.setFont(fuenteDos);
+		add(etiquetaCerveza);
+
 		contenidoSalchichon = new JTextField();
-		contenidoSalchichon.setBounds(420, 280, 40, 20);
+		contenidoSalchichon.setBounds(500, 280, 40, 20);
 		add(contenidoSalchichon);
 
 		etiquetaSeis = new JLabel("EMPANADA");
@@ -134,13 +178,20 @@ public class TercerPanel extends JPanel implements ActionListener{
 		etiquetaSeis.setFont(fuenteDos);
 		add(etiquetaSeis);
 
+		etiquetaEmpanada = new JLabel("2.500");
+		etiquetaEmpanada.setForeground(java.awt.Color.decode("#97970D"));
+		etiquetaEmpanada.setBounds(320, 230, 400, 200);
+		etiquetaEmpanada.setFont(fuenteDos);
+		add(etiquetaEmpanada);
+
+
 		contenidoEmpanada = new JTextField();
-		contenidoEmpanada.setBounds(420, 320, 40, 20);
+		contenidoEmpanada.setBounds(500, 320, 40, 20);
 		add(contenidoEmpanada);
 
 		botonAceptar = new JButton("ACEPTAR");
 		botonAceptar.setForeground(java.awt.Color.decode("#97970D"));
-		botonAceptar.setBounds(390,370,100,40);
+		botonAceptar.setBounds(300,380,100,40);
 		botonAceptar.setActionCommand("Segundo Boton");
 		botonAceptar.addActionListener(this);
 		add(botonAceptar);

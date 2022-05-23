@@ -13,6 +13,7 @@ import javax.imageio.ImageIO;
 
 import controll.Controller;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -38,6 +39,7 @@ public class CuartoPanel extends JPanel implements ActionListener {
 	private JTextField contenidoGorros;
 	private JTextField contenidoProtector ;
 	
+	
 	private JTextField  contenidoGafasSol;
 
 	//variables etiquetas
@@ -48,14 +50,21 @@ public class CuartoPanel extends JPanel implements ActionListener {
 	private JLabel etiquetaCuatro;
 	private JLabel etiquetaCinco;
 	private JLabel etiquetaSeis;
+	private JLabel etiquetaPrecio;
 	private JLabel etiquetaTitulo;
 	private JLabel etiquetaCantidad;
+	private JLabel etiquetaPrecioTraje;
+	private JLabel etiquetaGafas;
+	private JLabel etiquetaAletas;
+	private JLabel etiquetaGorros;
+	private JLabel etiquetaProtector ;
 
 	
-	private JLabel etiquetaIdenti;
-	private JLabel etiquetaNiños;
-	private JLabel etiquetaMayores;
-	private JLabel resultado;
+	private JLabel etiquetaCelular;
+
+	//variables para Boton
+	private JButton botonAceptarQuiosco;
+	
 
 
 	public CuartoPanel(){
@@ -67,22 +76,28 @@ public class CuartoPanel extends JPanel implements ActionListener {
 		setLayout(null);
 
 		fuente = new Font("Berlin Sans FB", Font.BOLD, 20);
-		fuenteDos = new Font("Berlin Sans FB", Font.BOLD, 13);
+		fuenteDos = new Font("Berlin Sans FB", Font.BOLD, 16);
 
 		etiquetaTitulo = new JLabel("BIENVENIDO AL QUIOSCO DE LA PISCINA");
-		etiquetaTitulo.setBounds(300, 10, 400, 50);
+		etiquetaTitulo.setBounds(200, 10, 400, 50);
 		etiquetaTitulo.setFont(fuente);
 		etiquetaTitulo.setForeground(java.awt.Color.decode("#0B2B7C"));
-		add(etiquetaTitulo);
+		//add(etiquetaTitulo);
 
 		etiquetaUno = new JLabel("PRODUCTO");
 		etiquetaUno.setForeground(java.awt.Color.decode("#717137"));
-		etiquetaUno.setBounds(110, 20, 300, 50);
+		etiquetaUno.setBounds(110, 60, 300, 50);
 		etiquetaUno.setFont(fuente);
 		add(etiquetaUno);
 
+		etiquetaPrecio = new JLabel("PRECIO");
+		etiquetaPrecio.setForeground(java.awt.Color.decode("#717137"));
+		etiquetaPrecio.setBounds(320, 60, 300, 50);
+		etiquetaPrecio.setFont(fuente);
+		add( etiquetaPrecio);
+
 		etiquetaCantidad = new JLabel("CANTIDAD");
-		etiquetaCantidad.setBounds(400, 20, 200, 50);
+		etiquetaCantidad.setBounds(480, 60, 200, 50);
 		etiquetaCantidad.setForeground(java.awt.Color.decode("#717137"));
 		etiquetaCantidad.setFont(fuente);
 		add( etiquetaCantidad);
@@ -95,7 +110,13 @@ public class CuartoPanel extends JPanel implements ActionListener {
 		add(etiquetaTraje);
 
 		contenidoTraje = new JTextField("");
-		contenidoTraje.setBounds(420, 120, 40, 20);
+		contenidoTraje.setBounds(500, 120, 40, 20);
+
+		etiquetaPrecioTraje= new JLabel("20.000");
+		etiquetaPrecioTraje.setBounds(320, 90, 200, 100);
+		etiquetaPrecioTraje.setForeground(java.awt.Color.decode("#1E2A8C"));
+		etiquetaPrecioTraje.setFont(fuenteDos);
+		add(etiquetaPrecioTraje);
 		
 		add(contenidoTraje);
 
@@ -105,8 +126,14 @@ public class CuartoPanel extends JPanel implements ActionListener {
 		etiquetaDos.setFont(fuenteDos);
 		add(etiquetaDos);
 
+		etiquetaGafas = new JLabel("15.000");
+		etiquetaGafas.setBounds(320, 70, 200, 200);
+		etiquetaGafas.setForeground(java.awt.Color.decode("#97970D"));
+		etiquetaGafas.setFont(fuenteDos);
+		add(etiquetaGafas);
+
 		contenidoGafasSol = new JTextField();
-		contenidoGafasSol.setBounds(420, 160, 40, 20);
+		contenidoGafasSol.setBounds(500, 160, 40, 20);
 		add(contenidoGafasSol);
 		
 		etiquetaTres = new JLabel("ALETAS");
@@ -115,8 +142,14 @@ public class CuartoPanel extends JPanel implements ActionListener {
 		etiquetaTres.setFont(fuenteDos);
 		add(etiquetaTres);
 
+		etiquetaAletas = new JLabel("30.000");
+		etiquetaAletas.setForeground(java.awt.Color.decode("#1E2A8C"));
+		etiquetaAletas.setBounds(320, 110, 200, 200);
+		etiquetaAletas.setFont(fuenteDos);
+		add(etiquetaAletas);
+
 		contenidoAletas = new JTextField();
-		contenidoAletas.setBounds(420, 200, 40, 20);
+		contenidoAletas.setBounds(500, 200, 40, 20);
 		add(contenidoAletas);
 
 		etiquetaCuatro = new JLabel("GORROS DE PISCINA");
@@ -125,8 +158,14 @@ public class CuartoPanel extends JPanel implements ActionListener {
 		etiquetaCuatro.setFont(fuenteDos);
 		add(etiquetaCuatro);
 
+		etiquetaGorros = new JLabel("3.000");
+		etiquetaGorros.setBounds(320, 150, 200, 200);
+		etiquetaGorros.setForeground(java.awt.Color.decode("#97970D"));
+		etiquetaGorros.setFont(fuenteDos);
+		add(etiquetaGorros);
+
 		contenidoGorros = new JTextField();
-		contenidoGorros.setBounds(420, 240, 40, 20);
+		contenidoGorros.setBounds(500, 240, 40, 20);
 		add(contenidoGorros);
 
 		etiquetaCinco = new JLabel("PROTECTOR SOLAR");
@@ -135,8 +174,14 @@ public class CuartoPanel extends JPanel implements ActionListener {
 		etiquetaCinco.setFont(fuenteDos);
 		add(etiquetaCinco);
 
+		etiquetaProtector = new JLabel("25.000");
+		etiquetaProtector.setBounds(320, 190, 280, 200);
+		etiquetaProtector.setForeground(java.awt.Color.decode("#1E2A8C"));
+		etiquetaProtector.setFont(fuenteDos);
+		add(etiquetaProtector);
+
 		contenidoProtector = new JTextField();
-		contenidoProtector.setBounds(420, 280, 40, 20);
+		contenidoProtector.setBounds(500, 280, 40, 20);
 		add(contenidoProtector );
 
 		etiquetaSeis = new JLabel("PROTECTOR CELULAR");
@@ -145,10 +190,25 @@ public class CuartoPanel extends JPanel implements ActionListener {
 		etiquetaSeis.setFont(fuenteDos);
 		add(etiquetaSeis);
 
-		contenidoProtector = new JTextField();
-		contenidoProtector.setBounds(420, 320, 40, 20);
-		add(contenidoProtector);
+		etiquetaCelular = new JLabel("12.000");
+		etiquetaCelular.setForeground(java.awt.Color.decode("#97970D"));
+		etiquetaCelular.setBounds(320, 230, 400, 200);
+		etiquetaCelular.setFont(fuenteDos);
+		add(etiquetaCelular);
 
+
+		contenidoProtector = new JTextField();
+		contenidoProtector.setBounds(500, 320, 40, 20);
+		add(contenidoProtector);
+	
+
+
+		botonAceptarQuiosco = new JButton("ACEPTAR");
+		botonAceptarQuiosco.setForeground(java.awt.Color.decode("#97970D"));
+		botonAceptarQuiosco.setBounds(300,380,100,40);
+		botonAceptarQuiosco.setActionCommand("Segundo Boton");
+		botonAceptarQuiosco.addActionListener(this);
+		add(botonAceptarQuiosco);
 	}
 
 
@@ -156,7 +216,7 @@ public class CuartoPanel extends JPanel implements ActionListener {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);//exception  controlan el entorno
 		try {
-			ImagenDos = ImageIO.read(new File("src\\resources\\SegundoPanel.jpg"));
+			ImagenDos = ImageIO.read(new File("src\\resources\\Quiosco.jpg"));
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "IMAGEN NO ENCONTRADA ");
 		}
