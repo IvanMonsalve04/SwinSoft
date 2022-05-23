@@ -13,6 +13,7 @@ import modell.Operacion;
 import view.CustomEvent;
 import view.CustomEventRespons;
 import view.IOManager;
+import view.SegundoPanel;
 
 public class Controller implements CustomEvent {
 	//Declaración de variables
@@ -33,11 +34,14 @@ public class Controller implements CustomEvent {
 	private File objetoArchivos;
 	private BufferedWriter escribirArchivo;
 	private BufferedReader leerArchivo;
+	private IOManager objetoIOManager;
+	private SegundoPanel objetoSegundoPanel;
+	
 	
 	//Método Constructor
 	public Controller(){
 		objetoOperaciones = new Operacion();
-		//objetoIOManagerDos = new IOManager();
+		
 	}
 	
 	//Métodos propios
@@ -53,11 +57,37 @@ public class Controller implements CustomEvent {
 	public void retornarImpresionPersonas(String nombre, String apellido, String sexo, String identificacion, int cantidadNinos, int cantidadAdultos) {
 		String resultadoImpresion = objetoOperaciones.realizarValidacionRegistro(nombre, apellido, sexo, identificacion, cantidadNinos, cantidadAdultos);
 		//System.out.println(resultadoImpresion);
+		
 		eventoRespuesta.respuestaRegistroPersonas(resultadoImpresion);
-		JOptionPane.showMessageDialog(null, resultadoImpresion);
+	
+		objetoArchivos = new File("src\\resources\\Segundo.txt");
+		
+
+		try {
+			escribirArchivo = new BufferedWriter(new FileWriter(objetoArchivos)); // Se crea el archivo
+			escribirArchivo.write("BIENVENIDO A SWIM SOFT.");
+			escribirArchivo.newLine();
+			escribirArchivo.write("Nombre comprador:  " + nombre);
+			escribirArchivo.write("\nApellido:  " + apellido);
+			escribirArchivo.write("\nSexo comprador:  " + sexo);
+			escribirArchivo.write("\nIdentificacion comprador:  " + identificacion);
+			escribirArchivo.write("\nCantidad de manillas para ninos:  " + cantidadNinos);
+			escribirArchivo.write("\nCantidad manillas para adultos:  " + cantidadAdultos);
+			escribirArchivo.close();
+			mensaje = "Tu archivo se ha creado y ya tiene datos";
+		} catch (IOException e) {
+			e.printStackTrace();
+			mensaje = "El archivo no se puede crear.";
+		}
+
+
 	}
 
 	//Manejo de Archivos
+	public String escribirArchivo(String nombre, String apellido, String sexo, String identificacion, int cantidadNinos, int cantidadAdultos) {
+		
+		return objetoSegundoPanel.imprimirMensaje(mensaje);
+	}
 
 	//Gets and Sets
 	public CustomEventRespons getEventoRespuesta() {
@@ -72,6 +102,7 @@ public class Controller implements CustomEvent {
 	public void init() {
 		IOManager objetoIOManager = new IOManager();
 		objetoIOManager.setVisible(true);
+		escribirArchivo(mensaje, mensaje, mensaje, mensaje, 0, 0);
 	}
 	
 }
