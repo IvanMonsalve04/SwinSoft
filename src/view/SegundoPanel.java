@@ -68,6 +68,8 @@ public class SegundoPanel extends JPanel implements ActionListener {
 
 	
 
+	
+
 	//Método Constructor
 	public SegundoPanel() {
         setLayout(null);
@@ -190,13 +192,15 @@ public class SegundoPanel extends JPanel implements ActionListener {
         Pestanas.add("Pestaña2", segundaPestaña);
         Pestanas.setSelectedComponent(segundaPestaña);
 		Pestanas.setseleccion(segundaPestaña);
-	
+
 		String nombre = (contenidoNombre.getText());
 		String apellido =(contenidoApellido.getText());
 		String sexo = (contenidoNombre.getText());
 		String identificacion = (contenidoApellido.getText());
 		int cantidadNinos = Integer.parseInt(contenidoManillasNinos.getText());
 		int cantidadAdultos = Integer.parseInt(contenidoManillasAdultos.getText());
+	
+		
 
 		evento.retornarImpresionPersonas(nombre, apellido, sexo, identificacion, cantidadNinos, cantidadAdultos);
 
@@ -206,6 +210,18 @@ public class SegundoPanel extends JPanel implements ActionListener {
 		contenidoIdentificacion.setText(" ");
 		contenidoManillasNinos.setText(" ");
 		contenidoManillasAdultos.setText(" ");
+	
+	}
+
+	//Manejo de Archivos
+	public String imprimirMensaje(String mensaje) {
+
+		
+
+		
+
+		JOptionPane.showMessageDialog(null, mensaje);
+		return null;
 	}
 	
 	

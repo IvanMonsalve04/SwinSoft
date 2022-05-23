@@ -19,11 +19,11 @@ public class Operacion {
 	private String caracterUsuario;
 	private String caracterContraseña;
 	private String mensajeInscripcion;
-	private JPanel panelUno;
+	private String mensajeDatos;
 
 	//Método Constructor
 	public Operacion() {
-		panelUno = new PrimerPanel();
+		
 		resultadoLogIn = false;
 		caracterUsuario = "admin";
 		caracterContraseña = "admin123";
@@ -43,6 +43,13 @@ public class Operacion {
 		mensajeInscripcion = "Los datos del cliente registrado son: \nNombre: " + nombre + "\nApellido: " + apellido + "\nSexo: " + sexo + "\nIdentificacion: " + identificacion + "\nCantidad de manillas niños: " + cantidadNinos + "\nCantidad de manillas adultos: " + cantidadAdultos;
 		return mensajeInscripcion;	
 	}
+
+	public String realizarValidacionDatos(String nombre, String apellido, String sexo, String identificacion, int cantidadNinos, int cantidadAdultos) {
+		mensajeDatos= "Los datos del cliente registrado son: \nNombre: " + nombre + "\nApellido: " + apellido + "\nSexo: " + sexo + "\nIdentificacion: " + identificacion + "\nCantidad de manillas niños: " + cantidadNinos + "\nCantidad de manillas adultos: " + cantidadAdultos;
+		return mensajeDatos;	
+	}
+	
+	
 
 	
 	

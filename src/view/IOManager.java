@@ -76,6 +76,7 @@ public class IOManager extends JFrame implements CustomEventRespons {
 	
 	}
 
+	
 
 	//Métodos propios
 	@Override
@@ -99,15 +100,11 @@ public class IOManager extends JFrame implements CustomEventRespons {
 
 	@Override
 	public void respuesta(String resultadoImpresion) {
-		//((SegundoPanel)panelDos).mostrarResultado(resultadoImpresion);
+		
 		
 	}
 
-	//Manejo de Archivos
-	public String imprimirMensaje(String mensaje) {
-		JOptionPane.showMessageDialog(null, mensaje);
-		return null;
-	}
+	
 
 }
 
