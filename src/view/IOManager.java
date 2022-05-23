@@ -59,7 +59,7 @@ public class IOManager extends JFrame implements CustomEventRespons {
 		add(pestanas);
 		
 		panelTres= new TercerPanel();
-		//((TercerPanel)panelTres).setEvento(objetoControlador);
+		((TercerPanel)panelTres).setEvento(objetoControlador);
 		pestanas.add("TIENDA", ((TercerPanel)panelTres));
 		add(pestanas);
 
@@ -105,6 +105,15 @@ public class IOManager extends JFrame implements CustomEventRespons {
 	@Override
 	public void respuesta(String resultadoImpresion) {
 		
+		
+	}
+
+
+
+	@Override
+	public void respuestaCalculo(int resultadoCalculo) {
+		((TercerPanel)panelTres).mostrarResultadoCalculo(resultadoCalculo);
+		// TODO Auto-generated method stub
 		
 	}
 

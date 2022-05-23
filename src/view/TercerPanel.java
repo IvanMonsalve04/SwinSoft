@@ -55,9 +55,26 @@ public class TercerPanel extends JPanel implements ActionListener{
 	//variables para Boton
 	private JButton botonAceptar;
 
+	//variables int o String
+	int cocaCola;
+	int agua;
+	int jugo;
+	int sandwitch;
+	int cerveza;
+	int empanada;
+
+	//evento
+	private CustomEvent evento;
+
 
 	//metodo constructor
 	public TercerPanel(){
+		cocaCola = 3000;
+		agua = 1800;
+		jugo = 2500;
+		sandwitch = 2000;
+		cerveza = 3000;
+		empanada = 2500;
 		
 		setLayout(null);
 
@@ -217,14 +234,43 @@ public class TercerPanel extends JPanel implements ActionListener{
 		g.drawImage(ImagenDos, 0, 0, null);//movemos imagen
 	}
 
+	//Gets and Sets 
+	public CustomEvent getEvento() {
+		return evento;
+	}
+
+	public void setEvento(CustomEvent evento) {
+		this.evento = evento;
+	}
+	//Métodos Propios
+	public void mostrarResultadoCalculo(int resultadoCalculo) {
+		String resultadoVista = Integer.toString(resultadoCalculo);
+	}
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
 
 		JOptionPane.showMessageDialog(null, "click two");
 
+	    cocaCola = Integer.parseInt(contenidoCocaCola.getText());
+		agua = Integer.parseInt(contenidoAgua.getText());
+		jugo = Integer.parseInt(contenidoJugo.getText());
+		sandwitch = Integer.parseInt(contenidoSandwitch.getText());
+		cerveza =  Integer.parseInt(contenidoSalchichon.getText());
+		empanada =  Integer.parseInt(contenidoEmpanada.getText());
 
-        // TODO Auto-generated method stub
+
+		evento.retornarCalculo(cocaCola,agua,jugo,sandwitch,cerveza,empanada);
+        
+		contenidoCocaCola.setText("");
+		contenidoAgua.setText("");
+		contenidoJugo.setText("");
+		contenidoSandwitch.setText("");
+		contenidoSalchichon.setText("");
+		contenidoEmpanada.setText("");
+
+
+		// TODO Auto-generated method stub
         
     }
 

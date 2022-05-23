@@ -20,7 +20,7 @@ public class Operacion {
 	private String caracterContraseña;
 	private String mensajeInscripcion;
 	private String mensajeDatos;
-	private int reciboEntradas;
+	private int mensajeCalculo;
 
 	//Método Constructor
 	public Operacion() {
@@ -49,6 +49,15 @@ public class Operacion {
 		mensajeDatos= "Los datos del cliente registrado son: \nNombre: " + nombre + "\nApellido: " + apellido + "\nSexo: " + sexo + "\nIdentificacion: " + identificacion + "\nCantidad de manillas niños: " + cantidadNinos + "\nCantidad de manillas adultos: " + cantidadAdultos;
 		
 		return mensajeDatos;	
+	}
+
+	public int realizarValidacionCalculo(int cocaCola , int agua, int jugo, int sandwitch, int cerveza, int empanada){
+        
+	
+		
+		mensajeCalculo = +cocaCola*3000+agua*1800+jugo*2500+sandwitch*2000+cerveza*3000+empanada*2500;
+
+		return mensajeCalculo;
 	}
 	
 	

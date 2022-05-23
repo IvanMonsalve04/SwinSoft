@@ -183,9 +183,7 @@ public class SegundoPanel extends JPanel implements ActionListener {
 		add(botonUno);
 	}
 
-	private JLabel horaActual() {
-		return null;
-	}
+	
 
 	//Métodos Propios
 	public void mostrarResultadoRegistro(String resultadoImpresion) {
