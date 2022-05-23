@@ -80,7 +80,7 @@ public class Controller implements CustomEvent {
 			escribirArchivo.write("\nIdentificacion comprador:  " + identificacion);
 			escribirArchivo.write("\nCantidad de manillas para ninos:  " + cantidadNinos);
 			escribirArchivo.write("\nCantidad manillas para adultos:  " + cantidadAdultos);
-			escribirArchivo.close();
+			//escribirArchivo.close();
 			mensaje = "Tu archivo se ha creado y ya tiene datos";
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -109,7 +109,7 @@ public class Controller implements CustomEvent {
 			escribirArchivo.write("\nValor sandwitch: " + (sandwitch * 2000));
 			escribirArchivo.write("\nValor cerveza:  " + (cerveza * 3000));
 			escribirArchivo.write("\nValor empanada:  " + (empanada * 2500));
-			escribirArchivo.close();
+			//escribirArchivo.close();
 			mensaje = "Tu archivo se ha creado y ya tiene datos";
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -45,7 +45,7 @@ public class CuartoPanel extends JPanel implements ActionListener {
 	private JTextField contenidoTraje;
 	private JTextField contenidoGorros;
 	private JTextField contenidoProtector ;
-	private JTextField  contenidoGafasSol;
+	private JTextField contenidoGafasSol;
 	private JTextField contenidoProtectorCelular;
 
 	//variables etiquetas
@@ -97,13 +97,13 @@ public class CuartoPanel extends JPanel implements ActionListener {
 		etiquetaPrecio.setForeground(java.awt.Color.decode("#717137"));
 		etiquetaPrecio.setBounds(320, 60, 300, 50);
 		etiquetaPrecio.setFont(fuente);
-		add( etiquetaPrecio);
+		add(etiquetaPrecio);
 
 		etiquetaCantidad = new JLabel("CANTIDAD");
 		etiquetaCantidad.setBounds(480, 60, 200, 50);
 		etiquetaCantidad.setForeground(java.awt.Color.decode("#717137"));
 		etiquetaCantidad.setFont(fuente);
-		add( etiquetaCantidad);
+		add(etiquetaCantidad);
 
 
 		etiquetaTraje = new JLabel("TRAJE DE BAÑO");
