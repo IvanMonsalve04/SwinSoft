@@ -107,12 +107,12 @@ public class IOManager extends JFrame implements CustomEventRespons {
 	}
 
 	@Override
-	public void respuestaCalculo(int resultadoCalculo) {
+	public void respuestaCalculo(double resultadoCalculo) {
 		((TercerPanel)panelTres).mostrarResultadoCalculo(resultadoCalculo);
 	}
 
 	@Override
-	public void respuestaQuiosco(int resultadoQuiosco) {
+	public void respuestaQuiosco(double resultadoQuiosco) {
 		((CuartoPanel)panelCuatro).mostrarResultadoQuiosco(resultadoQuiosco);
 	}
 }

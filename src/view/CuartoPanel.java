@@ -10,7 +10,6 @@ import java.awt.Font;
 
 import javax.imageio.ImageIO;
 
-
 import controll.Controller;
 
 import javax.swing.JButton;
@@ -213,8 +212,8 @@ public class CuartoPanel extends JPanel implements ActionListener {
 	}
 
 	//Métodos propios
-	public void mostrarResultadoQuiosco(int resultadoQuiosco) {
-		String resultadoVista = Integer.toString(resultadoQuiosco);
+	public void mostrarResultadoQuiosco(double resultadoQuiosco) {
+		String resultadoVista = Double.toString(resultadoQuiosco);
 	}
 
      //Gráficos de imagen

@@ -1,9 +1,9 @@
 
 SWIM SOFT ENTRADA DE PERSONAS
 
-Nombre comprador:  ivan
-Apellido:  mons
-Sexo comprador:  masc
-Identificacion comprador:  123
+Nombre comprador:  iVan
+Apellido:  monsalve
+Sexo comprador:  masculino
+Identificacion comprador:  123431
 Cantidad de manillas para ninos:  2
-Cantidad manillas para adultos:  3
+Cantidad manillas para adultos:  2

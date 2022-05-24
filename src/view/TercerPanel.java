@@ -236,8 +236,8 @@ public class TercerPanel extends JPanel implements ActionListener{
 		this.evento = evento;
 	}
 	//Métodos Propios
-	public void mostrarResultadoCalculo(int resultadoCalculo) {
-		String resultadoVista = Integer.toString(resultadoCalculo);
+	public void mostrarResultadoCalculo(double resultadoCalculo) {
+		String resultadoVista = Double.toString(resultadoCalculo);
 	}
 
     @Override

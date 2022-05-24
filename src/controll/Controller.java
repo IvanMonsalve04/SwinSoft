@@ -101,7 +101,7 @@ public class Controller implements CustomEvent {
 
 	@Override
 	public void retornarCalculo(int cocaCola, int agua, int jugo, int sandwitch, int cerveza, int empanada) {
-		int resultadoImpresion = objetoOperaciones.realizarValidacionCalculo(cocaCola, agua, jugo, sandwitch, cerveza, empanada);
+		double resultadoImpresion = objetoOperaciones.realizarCalculoTienda(cocaCola, agua, jugo, sandwitch, cerveza, empanada);
 		
 		JOptionPane.showMessageDialog(null, resultadoImpresion);
 		
@@ -131,10 +131,11 @@ public class Controller implements CustomEvent {
 		eventoRespuesta.respuestaCalculo(resultadoImpresion);
 
 	}
+	
 
 	@Override
 	public void retornarCalculoQuiosco(int cantidadTraje, int cantidadGafas, int cantidadAletas, int cantidadGorros, int cantidadProtector, int cantidadProtectorCelular) {
-		int resultadoImpresion = objetoOperaciones.realizarCalculoQuiosco(cantidadTraje, cantidadGafas, cantidadAletas, cantidadGorros, cantidadProtector, cantidadProtectorCelular);
+		double resultadoImpresion = objetoOperaciones.realizarCalculoQuiosco(cantidadTraje, cantidadGafas, cantidadAletas, cantidadGorros, cantidadProtector, cantidadProtectorCelular);
 		JOptionPane.showMessageDialog(null, resultadoImpresion);
 		objetoArchivos = new File("src\\resources\\RegistroQuiosco.txt");
 		
