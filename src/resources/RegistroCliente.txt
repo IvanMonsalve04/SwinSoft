@@ -1,9 +1,0 @@
-
-SWIM SOFT TIENDA
-
-Valor empanada:  3000
-Valor agua:  0
-Valor jugo:  2500
-Valor sandwitch:  14000
-Valor cerveza:  0
-Valor empaada:  0

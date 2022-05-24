@@ -33,6 +33,7 @@ public class Controller implements CustomEvent {
 	private boolean sePuedeEscribir;
 	private long tamanio;
 	private File objetoArchivos;
+	private FileWriter sobreEscribirArchivo;
 	private BufferedWriter escribirArchivo;
 	private BufferedReader leerArchivo;
 	private IOManager objetoIOManager;
@@ -56,22 +57,21 @@ public class Controller implements CustomEvent {
 
 	@Override
 	public void retornarImpresionPersonas(String nombre, String apellido, String sexo, String identificacion, int cantidadNinos, int cantidadAdultos) {
-		
 		String resultadoImpresion = objetoOperaciones.realizarValidacionRegistro(nombre, apellido, sexo, identificacion, cantidadNinos, cantidadAdultos);
-		
-		//System.out.println(resultadoImpresion);
-		
 		eventoRespuesta.respuestaRegistroPersonas(resultadoImpresion);
-	
 		JOptionPane.showMessageDialog(null, resultadoImpresion);
-		//objetoArchivos = new File("src\\resources\\RegistroClientes.txt");
-		objetoArchivos = new File("src\\resources\\" + identificacion + ".txt");
-		
+		double resultadoValorManillas = objetoOperaciones.calcularTotalRegistroPersonas(cantidadNinos, cantidadAdultos);
+		JOptionPane.showMessageDialog(null,  resultadoValorManillas);
+		objetoArchivos = new File("src\\resources\\RegistroClientes.txt");
 
 		try {
-		
+			// Si el archivo no existe, se crea!
+			if (!objetoArchivos.exists()) {
+				objetoArchivos.createNewFile();
+			}
+			// flag true, indica adjuntar información al archivo.
+			sobreEscribirArchivo = new FileWriter(objetoArchivos.getAbsoluteFile(), true);
 			escribirArchivo = new BufferedWriter(new FileWriter(objetoArchivos)); // Se crea el archivo
-			
 			escribirArchivo.write("\nSWIM SOFT ENTRADA DE PERSONAS\n");
 			escribirArchivo.newLine();
 			escribirArchivo.write("Nombre comprador:  " + nombre);
@@ -80,14 +80,24 @@ public class Controller implements CustomEvent {
 			escribirArchivo.write("\nIdentificacion comprador:  " + identificacion);
 			escribirArchivo.write("\nCantidad de manillas para ninos:  " + cantidadNinos);
 			escribirArchivo.write("\nCantidad manillas para adultos:  " + cantidadAdultos);
-			//escribirArchivo.close();
+			escribirArchivo.newLine();
+			//System.out.println("información agregada!");
 			mensaje = "Tu archivo se ha creado y ya tiene datos";
-		} catch (IOException e) {
-			e.printStackTrace();
-			mensaje = "El archivo no se puede crear.";
+    	} catch (IOException e) {
+        	e.printStackTrace();
+    	} finally {
+			try {
+				//Cierra instancias de FileWriter y BufferedWriter
+				if (escribirArchivo != null)
+					escribirArchivo.close();
+				if (sobreEscribirArchivo != null)
+					sobreEscribirArchivo.close();
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
 		}
-
 	}
+
 
 	@Override
 	public void retornarCalculo(int cocaCola, int agua, int jugo, int sandwitch, int cerveza, int empanada) {
@@ -95,7 +105,7 @@ public class Controller implements CustomEvent {
 		
 		JOptionPane.showMessageDialog(null, resultadoImpresion);
 		
-		objetoArchivos = new File("src\\resources\\RegistroTienda.txt");
+		objetoArchivos = new File("src\\resources\\RegistroTienda");
 		
 		try {
 		
@@ -109,7 +119,8 @@ public class Controller implements CustomEvent {
 			escribirArchivo.write("\nValor sandwitch: " + (sandwitch * 2000));
 			escribirArchivo.write("\nValor cerveza:  " + (cerveza * 3000));
 			escribirArchivo.write("\nValor empanada:  " + (empanada * 2500));
-			//escribirArchivo.close();
+			escribirArchivo.newLine();
+			escribirArchivo.close();
 			mensaje = "Tu archivo se ha creado y ya tiene datos";
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -124,15 +135,11 @@ public class Controller implements CustomEvent {
 	@Override
 	public void retornarCalculoQuiosco(int cantidadTraje, int cantidadGafas, int cantidadAletas, int cantidadGorros, int cantidadProtector, int cantidadProtectorCelular) {
 		int resultadoImpresion = objetoOperaciones.realizarCalculoQuiosco(cantidadTraje, cantidadGafas, cantidadAletas, cantidadGorros, cantidadProtector, cantidadProtectorCelular);
-		
 		JOptionPane.showMessageDialog(null, resultadoImpresion);
-		
 		objetoArchivos = new File("src\\resources\\RegistroQuiosco.txt");
 		
 		try {
-		
 			escribirArchivo = new BufferedWriter(new FileWriter(objetoArchivos)); // Se crea el archivo
-			
 			escribirArchivo.write("\nSWIM SOFT QUIOSCO\n");
 			escribirArchivo.newLine();
 			escribirArchivo.write("Valor traje de baño: " + (cantidadTraje * 3000));
@@ -141,6 +148,7 @@ public class Controller implements CustomEvent {
 			escribirArchivo.write("\nValor gorro: " + (cantidadGorros * 2000));
 			escribirArchivo.write("\nValor protector solar:  " + (cantidadProtector * 3000));
 			escribirArchivo.write("\nValor protector celular:  " + (cantidadProtectorCelular * 2500));
+			escribirArchivo.newLine();
 			escribirArchivo.close();
 			mensaje = "Tu archivo se ha creado y ya tiene datos";
 		} catch (IOException e) {
@@ -148,9 +156,7 @@ public class Controller implements CustomEvent {
 			mensaje = "El archivo no se puede crear.";
 		}
 
-		
 		eventoRespuesta.respuestaCalculo(resultadoImpresion);
-
 	}
 	
 
@@ -167,9 +173,5 @@ public class Controller implements CustomEvent {
 	public void init() {
 		IOManager objetoIOManager = new IOManager();
 		objetoIOManager.setVisible(true);
-		
 	}
-
-	
-	
 }

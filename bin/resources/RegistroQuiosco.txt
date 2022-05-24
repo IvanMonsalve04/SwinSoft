@@ -1,0 +1,9 @@
+
+SWIM SOFT QUIOSCO
+
+Valor traje de ba�o: 3000
+Valor gafas: 0
+Valor aletas: 0
+Valor gorro: 0
+Valor protector solar:  0
+Valor protector celular:  0

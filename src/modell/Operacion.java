@@ -20,8 +20,8 @@ public class Operacion {
 	private String caracterUsuario;
 	private String caracterContraseña;
 	private String mensajeInscripcion;
-	private String mensajeDatos;
 	private int mensajeCalculo;
+	private double valorManillas;
 
 	//Método Constructor
 	public Operacion() {
@@ -29,6 +29,9 @@ public class Operacion {
 		resultadoLogIn = false;
 		caracterUsuario = "admin";
 		caracterContraseña = "admin123";
+		mensajeInscripcion = "";
+		mensajeCalculo = 0;
+		valorManillas = 0;
  	}
 
 	//Métodos propios
@@ -46,12 +49,6 @@ public class Operacion {
 		return mensajeInscripcion;	
 	}
 
-	public String realizarValidacionDatos(String nombre, String apellido, String sexo, String identificacion, int cantidadNinos, int cantidadAdultos) {
-		mensajeDatos= "Los datos del cliente registrado son: \nNombre: " + nombre + "\nApellido: " + apellido + "\nSexo: " + sexo + "\nIdentificacion: " + identificacion + "\nCantidad de manillas niños: " + cantidadNinos + "\nCantidad de manillas adultos: " + cantidadAdultos;
-		
-		return mensajeDatos;	
-	}
-
 	public int realizarValidacionCalculo(int cocaCola , int agua, int jugo, int sandwitch, int cerveza, int empanada){	
 		mensajeCalculo = ((cocaCola*3000) + (agua*1800) + (jugo*2500) + (sandwitch*2000) + (cerveza*3000) + (empanada*2500));
 		return mensajeCalculo;
@@ -60,6 +57,11 @@ public class Operacion {
 	public int realizarCalculoQuiosco(int cantidadTraje, int cantidadGafas, int cantidadAletas, int cantidadGorros, int cantidadProtector, int cantidadProtectorCelular){	
 		mensajeCalculo = ((cantidadTraje * 20000) + (cantidadGafas * 15000) + (cantidadAletas * 3000) + (cantidadGorros * 3000) + (cantidadProtector * 25000) + (cantidadProtectorCelular * 1200));
 		return mensajeCalculo;
+	}
+
+	public double calcularTotalRegistroPersonas(int cantidadNinos, int cantidadAdultos) {
+		valorManillas = ((cantidadNinos * 6000) + (cantidadAdultos * 10000));
+		return valorManillas;
 	}
 	
 	

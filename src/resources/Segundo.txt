@@ -1,9 +1,0 @@
-
-SWIM SOFT ENTRADA DE PERSONAS
-
-Nombre comprador:  Dayana
-Apellido:  Fonseca
-Sexo comprador:  Femenino
-Identificacion comprador:  4454545
-Cantidad de manillas para ninos:  2
-Cantidad manillas para adultos:  5

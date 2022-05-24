@@ -199,7 +199,7 @@ public class CuartoPanel extends JPanel implements ActionListener {
 		add(etiquetaPrecioProtectorCelular);
 
 		contenidoProtectorCelular = new JTextField();
-		contenidoProtector.setBounds(500, 320, 40, 20);
+		contenidoProtectorCelular.setBounds(500, 320, 40, 20);
 		add(contenidoProtectorCelular);
 	
 
@@ -209,6 +209,7 @@ public class CuartoPanel extends JPanel implements ActionListener {
 		botonAceptarQuiosco.setActionCommand("Segundo Boton");
 		botonAceptarQuiosco.addActionListener(this);
 		add(botonAceptarQuiosco);
+		
 	}
 
 	//Métodos propios

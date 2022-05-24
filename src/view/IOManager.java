@@ -55,26 +55,26 @@ public class IOManager extends JFrame implements CustomEventRespons {
 		panelDos = new SegundoPanel();
 		((SegundoPanel)panelDos).setEvento(objetoControlador);
 		pestanas.add("ACCESO", ((SegundoPanel)panelDos));
-		//pestanas.setEnabledAt(pestanas.indexOfComponent(panelDos),false);
+		pestanas.setEnabledAt(pestanas.indexOfComponent(panelDos),false);
 		add(pestanas);
 		
 		panelTres= new TercerPanel();
 		((TercerPanel)panelTres).setEvento(objetoControlador);
 		pestanas.add("TIENDA", ((TercerPanel)panelTres));
+		pestanas.setEnabledAt(pestanas.indexOfComponent(panelTres),false);
 		add(pestanas);
 
 		
 		panelCuatro = new CuartoPanel();
 		((CuartoPanel)panelCuatro).setEvento(objetoControlador);
-		
 		pestanas.add("QUIOSCO", ((CuartoPanel)panelCuatro));
-		//pestanas.setEnabledAt(pestanas.indexOfComponent(panelCuatro),false);
+		pestanas.setEnabledAt(pestanas.indexOfComponent(panelCuatro),false);
 		add(pestanas);
 
 		//panel prueba imprimir
 		panelImprimir = new Imprimir();
 		((Imprimir)panelImprimir).setEvento(objetoControlador);
-		pestanas.add("RECIBO",((Imprimir)panelImprimir));
+		pestanas.add("CIERRE CAJA",((Imprimir)panelImprimir));
 		pestanas.setEnabledAt(pestanas.indexOfComponent(panelImprimir),false);
 		add(pestanas);
 	
@@ -88,11 +88,15 @@ public class IOManager extends JFrame implements CustomEventRespons {
 		((PrimerPanel)panelUno).mostrarResultadoLogIn(resultadoLogIn);
 		if(resultadoLogIn == true) {
 			pestanas.setEnabledAt(pestanas.indexOfComponent(panelDos),true);
+			pestanas.setEnabledAt(pestanas.indexOfComponent(panelTres),true);
 			pestanas.setEnabledAt(pestanas.indexOfComponent(panelCuatro),true);
+			pestanas.setEnabledAt(pestanas.indexOfComponent(panelImprimir),true);
 
 		} else{
 			pestanas.setEnabledAt(pestanas.indexOfComponent(panelDos),false);
+			pestanas.setEnabledAt(pestanas.indexOfComponent(panelTres),false);
 			pestanas.setEnabledAt(pestanas.indexOfComponent(panelCuatro),false);
+			pestanas.setEnabledAt(pestanas.indexOfComponent(panelImprimir),false);
 		}
 	}
 	
@@ -111,9 +115,6 @@ public class IOManager extends JFrame implements CustomEventRespons {
 	public void respuestaQuiosco(int resultadoQuiosco) {
 		((CuartoPanel)panelCuatro).mostrarResultadoQuiosco(resultadoQuiosco);
 	}
-
-	
-
 }
 
 
