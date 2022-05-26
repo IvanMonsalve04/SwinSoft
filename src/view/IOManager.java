@@ -64,7 +64,6 @@ public class IOManager extends JFrame implements CustomEventRespons {
 		pestanas.setEnabledAt(pestanas.indexOfComponent(panelTres),false);
 		add(pestanas);
 
-		
 		panelCuatro = new CuartoPanel();
 		((CuartoPanel)panelCuatro).setEvento(objetoControlador);
 		pestanas.add("QUIOSCO", ((CuartoPanel)panelCuatro));
@@ -114,6 +113,11 @@ public class IOManager extends JFrame implements CustomEventRespons {
 	@Override
 	public void respuestaQuiosco(double resultadoQuiosco) {
 		((CuartoPanel)panelCuatro).mostrarResultadoQuiosco(resultadoQuiosco);
+	}
+
+	@Override
+	public void respuestaFactura(double resultadoFactura) {
+		((Imprimir)panelImprimir).mostrarResultadoFactura(resultadoFactura);
 	}
 }
 

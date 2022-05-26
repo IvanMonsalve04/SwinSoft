@@ -5,5 +5,5 @@ public interface CustomEventRespons {
 	public void respuestaRegistroPersonas(String resultadoImpresion);
 	public void respuestaCalculo(double resultadoCalculo);
 	public void respuestaQuiosco(double resultadoQuiosco);
-
+	public void respuestaFactura(double resultadoFactura);
 }

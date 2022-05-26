@@ -5,33 +5,20 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.awt.Graphics;
 import java.awt.Font;
-
-
-
 import javax.imageio.ImageIO;
-
 import controll.Controller;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
-
-
-
 public class CuartoPanel extends JPanel implements ActionListener {
-
-    //variables contenidos
-
+    //Declaración de variables
 	private BufferedImage ImagenDos;
-
 	private Font fuente;
 	private Font fuenteDos;
-	//String o Int
 	private String resultadoVista;
-
 	private int cantidadTraje;
 	private int cantidadGafas;
 	private int cantidadAletas;
@@ -64,15 +51,11 @@ public class CuartoPanel extends JPanel implements ActionListener {
 	private JLabel etiquetaPrecioGorros;
 	private JLabel etiquetaPrecioProtector;
 	private JLabel etiquetaPrecioProtectorCelular;
-	
-
 	private CustomEvent evento;
-	
 	private JLabel etiquetaCelular;
 
 	//variables para Boton
 	private JButton botonAceptarQuiosco;
-
 	public CuartoPanel(){
 		resultadoVista = " ";
 		setLayout(null);
@@ -103,7 +86,6 @@ public class CuartoPanel extends JPanel implements ActionListener {
 		etiquetaCantidad.setForeground(java.awt.Color.decode("#717137"));
 		etiquetaCantidad.setFont(fuente);
 		add(etiquetaCantidad);
-
 
 		etiquetaTraje = new JLabel("TRAJE DE BAÑO");
 		etiquetaTraje.setBounds(120, 90, 200, 100);
@@ -200,7 +182,6 @@ public class CuartoPanel extends JPanel implements ActionListener {
 		contenidoProtectorCelular = new JTextField();
 		contenidoProtectorCelular.setBounds(500, 320, 40, 20);
 		add(contenidoProtectorCelular);
-	
 
 		botonAceptarQuiosco = new JButton("ACEPTAR");
 		botonAceptarQuiosco.setForeground(java.awt.Color.decode("#97970D"));
@@ -208,7 +189,6 @@ public class CuartoPanel extends JPanel implements ActionListener {
 		botonAceptarQuiosco.setActionCommand("Segundo Boton");
 		botonAceptarQuiosco.addActionListener(this);
 		add(botonAceptarQuiosco);
-		
 	}
 
 	//Métodos propios
@@ -220,7 +200,7 @@ public class CuartoPanel extends JPanel implements ActionListener {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);//exception  controlan el entorno
 		try {
-			ImagenDos = ImageIO.read(new File("src\\resources\\Quiosco.jpg"));
+			ImagenDos = ImageIO.read(new File("src\\resources\\images\\Quiosco.jpg"));
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "IMAGEN NO ENCONTRADA ");
 		}
@@ -239,23 +219,19 @@ public class CuartoPanel extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 		JOptionPane.showMessageDialog(null, "Se ha registrado la información.");
-	    
 		cantidadTraje = Integer.parseInt(contenidoTraje.getText());
 		cantidadGafas = Integer.parseInt(contenidoGafasSol.getText());
 		cantidadAletas = Integer.parseInt(contenidoAletas.getText());
 		cantidadGorros = Integer.parseInt(contenidoGorros.getText());
 		cantidadProtector = Integer.parseInt(contenidoProtector.getText());
 		cantidadProtectorCelular = Integer.parseInt(contenidoProtectorCelular.getText());
-
 		evento.retornarCalculoQuiosco(cantidadTraje, cantidadGafas, cantidadAletas, cantidadGorros, cantidadProtector, cantidadProtectorCelular);
-        
 		contenidoTraje.setText("");
 		contenidoGafasSol.setText("");
 		contenidoAletas.setText("");
 		contenidoGorros.setText("");
 		contenidoProtector.setText("");
 		contenidoProtectorCelular.setText("");
-		
     }
 
 

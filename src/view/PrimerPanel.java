@@ -7,7 +7,6 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -15,7 +14,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
 import controll.Controller;
 /*
  * Autor: Iván Monsalve | Julián Montañez
@@ -98,7 +96,7 @@ public class PrimerPanel extends JPanel implements ActionListener {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);//exception  controlan el entorno
 		try {
-			ImagenDos = ImageIO.read(new File("src\\resources\\Log In.jpeg"));
+			ImagenDos = ImageIO.read(new File("src\\resources\\images\\Log In.jpeg"));
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "IMAGEN NO ENCONTRADA ");
 		}

@@ -1,9 +1,9 @@
 
 SWIM SOFT QUIOSCO
 
-Valor traje de baño: 3000
+Valor traje de baño: 6000
 Valor gafas: 0
 Valor aletas: 2500
 Valor gorro: 0
-Valor protector solar:  3000
+Valor protector solar:  0
 Valor protector celular:  0

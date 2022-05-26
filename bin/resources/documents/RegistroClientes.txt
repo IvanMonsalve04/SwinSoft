@@ -1,0 +1,9 @@
+
+SWIM SOFT ENTRADA DE PERSONAS
+
+Nombre comprador:  fegge
+Apellido:  btbrtn
+Sexo comprador:  nn
+Identificacion comprador:  ntrr
+Cantidad de manillas para ninos:  1
+Cantidad manillas para adultos:  2

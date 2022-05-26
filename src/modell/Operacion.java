@@ -1,6 +1,5 @@
 package modell;
 import view.PrimerPanel;
-//import view.Prueba;
 import view.SegundoPanel;
 
 import javax.lang.model.util.SimpleTypeVisitor14;
@@ -26,7 +25,6 @@ public class Operacion {
 
 	//Método Constructor
 	public Operacion() {
-		
 		resultadoLogIn = false;
 		caracterUsuario = "admin";
 		caracterContraseña = "admin123";

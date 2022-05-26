@@ -201,7 +201,6 @@ public class TercerPanel extends JPanel implements ActionListener{
 		etiquetaEmpanada.setFont(fuenteDos);
 		add(etiquetaEmpanada);
 
-
 		contenidoEmpanada = new JTextField();
 		contenidoEmpanada.setBounds(500, 320, 40, 20);
 		add(contenidoEmpanada);
@@ -214,13 +213,11 @@ public class TercerPanel extends JPanel implements ActionListener{
 		add(botonAceptar);
 	}
 
-
-
     //Gráficos de imagen
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);//exception  controlan el entorno
 		try {
-			ImagenDos = ImageIO.read(new File("src\\resources\\FondoPanelTienda.jpg"));
+			ImagenDos = ImageIO.read(new File("src\\resources\\images\\FondoPanelTienda.jpg"));
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "IMAGEN NO ENCONTRADA ");
 		}
@@ -235,6 +232,7 @@ public class TercerPanel extends JPanel implements ActionListener{
 	public void setEvento(CustomEvent evento) {
 		this.evento = evento;
 	}
+	
 	//Métodos Propios
 	public void mostrarResultadoCalculo(double resultadoCalculo) {
 		String resultadoVista = Double.toString(resultadoCalculo);
@@ -242,16 +240,13 @@ public class TercerPanel extends JPanel implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
-
 		JOptionPane.showMessageDialog(null, "Se ha registrado la información.");
-
 	    cocaCola = Integer.parseInt(contenidoCocaCola.getText());
 		agua = Integer.parseInt(contenidoAgua.getText());
 		jugo = Integer.parseInt(contenidoJugo.getText());
 		sandwitch = Integer.parseInt(contenidoSandwitch.getText());
 		cerveza =  Integer.parseInt(contenidoSalchichon.getText());
 		empanada =  Integer.parseInt(contenidoEmpanada.getText());
-
 
 		evento.retornarCalculo(cocaCola, agua, jugo, sandwitch, cerveza, empanada);
         
@@ -262,5 +257,4 @@ public class TercerPanel extends JPanel implements ActionListener{
 		contenidoSalchichon.setText("");
 		contenidoEmpanada.setText("");
     }
-
 }

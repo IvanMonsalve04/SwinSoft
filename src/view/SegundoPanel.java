@@ -8,31 +8,24 @@ import java.awt.Graphics;
 import java.awt.Font;
 import java.awt.BorderLayout;
 import java.awt.Color;
-
-
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.AttributeSet.ColorAttribute;
-
 import controll.Controller;
-
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.JFrame;
-
-
 import java.awt.Image;
 
 public class SegundoPanel extends JPanel implements ActionListener {
-	
+	//Declaración de variables
 	private JTabbedPane Pestana;
-
 	//variables etiquetas
 	private JLabel etiquetaUno;
 	private JLabel etiquetaDos;
@@ -70,21 +63,11 @@ public class SegundoPanel extends JPanel implements ActionListener {
 	//String o Int
 	private String resultadoVista;
 
-	
-
-	
-
 	//Método Constructor
 	public SegundoPanel() {
         setLayout(null);
-
-		
-		
-		
-
 		fuente = new Font("Berlin Sans FB", Font.BOLD, 20);
 		fuenteDos = new Font("Berlin Sans FB", Font.BOLD, 16);
-
 
 		etiquetaTitulo = new JLabel("BIENVENIDO SEÑOR USUARIO");
 		etiquetaTitulo.setBounds(300, 10, 300, 50);
@@ -106,7 +89,6 @@ public class SegundoPanel extends JPanel implements ActionListener {
 
 		contenidoNombre = new JTextField("");
 		contenidoNombre.setBounds(340, 80, 120, 20);
-		
 		add(contenidoNombre);
 
 		etiquetaDos = new JLabel("DIGITA TU APELLIDO");
@@ -115,7 +97,6 @@ public class SegundoPanel extends JPanel implements ActionListener {
 		etiquetaDos.setFont(fuenteDos);
 		add(etiquetaDos);
 		
-
 		contenidoApellido = new JTextField();
 		contenidoApellido.setBounds(340, 120, 120, 20);
 		add(contenidoApellido);
@@ -173,8 +154,6 @@ public class SegundoPanel extends JPanel implements ActionListener {
 		contenidoManillasAdultos.setBounds(380, 280, 80, 20);
 		add(contenidoManillasAdultos);
 		
-		
-
 		botonUno = new JButton("IMPRIMIR");
 		botonUno.setForeground(java.awt.Color.decode("#1E2A8C"));
 		botonUno.setBounds(300,350,100,40);
@@ -198,7 +177,7 @@ public class SegundoPanel extends JPanel implements ActionListener {
 		g.setColor(Color.yellow);
 		g.drawRect(30, 30, 100, 30);//rectangulo g 
 		try {
-			ImagenDos = ImageIO.read(new File("src\\resources\\panelDos.jpg"));
+			ImagenDos = ImageIO.read(new File("src\\resources\\images\\panelDos.jpg"));
 			super.paintComponent(g);//herencia para poner color en g
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "IMAGEN NO ENCONTRADA ");
@@ -232,8 +211,6 @@ public class SegundoPanel extends JPanel implements ActionListener {
 		int cantidadNinos = Integer.parseInt(contenidoManillasNinos.getText());
 		int cantidadAdultos = Integer.parseInt(contenidoManillasAdultos.getText());
 	
-		
-
 		evento.retornarImpresionPersonas(nombre, apellido, sexo, identificacion, cantidadNinos, cantidadAdultos);
 
 		contenidoNombre.setText("");
@@ -250,8 +227,6 @@ public class SegundoPanel extends JPanel implements ActionListener {
 		JOptionPane.showMessageDialog(null, mensaje);
 		return null;
 	}
-	
-	
 }
 
 	

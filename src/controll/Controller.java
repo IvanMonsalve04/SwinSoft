@@ -3,13 +3,9 @@ package controll;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDate;
-
 import javax.swing.JOptionPane;
-
 import modell.Operacion;
 import view.CustomEvent;
 import view.CustomEventRespons;
@@ -39,14 +35,28 @@ public class Controller implements CustomEvent {
 	private IOManager objetoIOManager;
 	private SegundoPanel objetoSegundoPanel;
 	
+	private double resultadoValorManillas;
+	private double resultadoValorTienda;
+	private double resultadoValorQuiosco;
+	
 	
 	//Método Constructor
 	public Controller(){
 		objetoOperaciones = new Operacion();
+		resultadoValorManillas = 0;
+		resultadoValorTienda = 0;
+		resultadoValorQuiosco = 0;
 		
 	}
 	
 	//Métodos propios
+	public CustomEventRespons getEventoRespuesta() {
+		return eventoRespuesta;
+	}
+
+	public void setEventoRespuesta(CustomEventRespons eventoRespuesta) {
+		this.eventoRespuesta = eventoRespuesta;
+	}
 	@Override
 	public void retornarLogIn(String usuario, String contrasenia) {
 		//System.out.println("Estoy en el controlador");
@@ -60,9 +70,9 @@ public class Controller implements CustomEvent {
 		String resultadoImpresion = objetoOperaciones.realizarValidacionRegistro(nombre, apellido, sexo, identificacion, cantidadNinos, cantidadAdultos);
 		eventoRespuesta.respuestaRegistroPersonas(resultadoImpresion);
 		JOptionPane.showMessageDialog(null, resultadoImpresion);
-		double resultadoValorManillas = objetoOperaciones.calcularTotalRegistroPersonas(cantidadNinos, cantidadAdultos);
-		JOptionPane.showMessageDialog(null,  resultadoValorManillas);
-		objetoArchivos = new File("src\\resources\\RegistroClientes.txt");
+		resultadoValorManillas = objetoOperaciones.calcularTotalRegistroPersonas(cantidadNinos, cantidadAdultos);
+		JOptionPane.showMessageDialog(null, "El valor total del registro a la piscina es de: " + resultadoValorManillas);
+		objetoArchivos = new File("src\\resources\\documents\\RegistroClientes.txt");
 
 		try {
 			// Si el archivo no existe, se crea!
@@ -98,19 +108,14 @@ public class Controller implements CustomEvent {
 		}
 	}
 
-
 	@Override
 	public void retornarCalculo(int cocaCola, int agua, int jugo, int sandwitch, int cerveza, int empanada) {
-		double resultadoImpresion = objetoOperaciones.realizarCalculoTienda(cocaCola, agua, jugo, sandwitch, cerveza, empanada);
-		
-		JOptionPane.showMessageDialog(null, resultadoImpresion);
-		
-		objetoArchivos = new File("src\\resources\\RegistroTienda");
-		
+		resultadoValorTienda = objetoOperaciones.realizarCalculoTienda(cocaCola, agua, jugo, sandwitch, cerveza, empanada);
+		JOptionPane.showMessageDialog(null, "El valor total de las compras en la tienda es de: " + resultadoValorTienda);
+		//System.out.println(resultadoValorTienda);
+		objetoArchivos = new File("src\\resources\\documents\\RegistroTienda");
 		try {
-		
 			escribirArchivo = new BufferedWriter(new FileWriter(objetoArchivos)); // Se crea el archivo
-			
 			escribirArchivo.write("\nSWIM SOFT TIENDA\n");
 			escribirArchivo.newLine();
 			escribirArchivo.write("Valor CocaCola: " + (cocaCola * 3000));
@@ -126,19 +131,17 @@ public class Controller implements CustomEvent {
 			e.printStackTrace();
 			mensaje = "El archivo no se puede crear.";
 		}
-
-		
-		eventoRespuesta.respuestaCalculo(resultadoImpresion);
-
+		eventoRespuesta.respuestaCalculo(resultadoValorTienda);
 	}
 	
 
 	@Override
 	public void retornarCalculoQuiosco(int cantidadTraje, int cantidadGafas, int cantidadAletas, int cantidadGorros, int cantidadProtector, int cantidadProtectorCelular) {
-		double resultadoImpresion = objetoOperaciones.realizarCalculoQuiosco(cantidadTraje, cantidadGafas, cantidadAletas, cantidadGorros, cantidadProtector, cantidadProtectorCelular);
-		JOptionPane.showMessageDialog(null, resultadoImpresion);
-		objetoArchivos = new File("src\\resources\\RegistroQuiosco.txt");
-		
+		resultadoValorQuiosco = objetoOperaciones.realizarCalculoQuiosco(cantidadTraje, cantidadGafas, cantidadAletas, cantidadGorros, cantidadProtector, cantidadProtectorCelular);
+		//System.out.println(resultadoValorQuiosco);
+		//System.out.println(resultadoValorTienda);
+		JOptionPane.showMessageDialog(null, "El valor total a pagar de las compras de quiosco es: " + resultadoValorQuiosco);
+		objetoArchivos = new File("src\\resources\\documents\\RegistroQuiosco.txt");
 		try {
 			escribirArchivo = new BufferedWriter(new FileWriter(objetoArchivos)); // Se crea el archivo
 			escribirArchivo.write("\nSWIM SOFT QUIOSCO\n");
@@ -156,19 +159,17 @@ public class Controller implements CustomEvent {
 			e.printStackTrace();
 			mensaje = "El archivo no se puede crear.";
 		}
+		eventoRespuesta.respuestaCalculo(resultadoValorQuiosco);
+	}
 
-		eventoRespuesta.respuestaCalculo(resultadoImpresion);
+	@Override
+	public void retornarCalculoFactura(String sendData) {
+		double valorTotalPagar = (resultadoValorManillas) + (resultadoValorTienda) + (resultadoValorQuiosco);
+		eventoRespuesta.respuestaFactura(valorTotalPagar);
 	}
 	
 
 	//Gets and Sets
-	public CustomEventRespons getEventoRespuesta() {
-		return eventoRespuesta;
-	}
-
-	public void setEventoRespuesta(CustomEventRespons eventoRespuesta) {
-		this.eventoRespuesta = eventoRespuesta;
-	}
 
 	//Método main
 	public void init() {
